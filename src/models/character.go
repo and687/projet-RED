@@ -12,6 +12,7 @@ type character struct {
 	Health    int
 	Level     int
 	HealthMax int
+	money     int
 }
 
 func InitCharacter(name string, classe string, health int, level int, healthmax int) character {
@@ -21,7 +22,6 @@ func InitCharacter(name string, classe string, health int, level int, healthmax 
 		Health:    health,
 		Level:     level,
 		HealthMax: healthmax,
-	
 	}
 }
 
