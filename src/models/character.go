@@ -1,6 +1,10 @@
 package character 
 
-import "fmt"
+import (
+	"fmt"
+"unicode"
+"strings"
+)
 
 type character struct {
 	Name      string
