@@ -12,16 +12,17 @@ type character struct {
 	Health    int
 	Level     int
 	HealthMax int
-	money     int
+	Money     int
 }
 
-func InitCharacter(name string, classe string, health int, level int, healthmax int) character {
+func InitCharacter(name string, classe string, health int, level int, healthmax int, money int) character {
 	return character{
 		Name:      name,
 		Classe:    classe,
 		Health:    health,
 		Level:     level,
 		HealthMax: healthmax,
+		Money:     money,
 	}
 }
 
@@ -74,4 +75,5 @@ func DisplayInfo(personnage character) {
     fmt.Println("PV :", personnage.Health)
     fmt.Println("Niveau :", personnage.Level)
     fmt.Println("PV max :", personnage.HealthMax)
+	fmt.Println("Money :",  personnage.Money)
 }
