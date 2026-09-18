@@ -29,3 +29,11 @@ func AskName()string {
 
     return name
 }
+
+func DisplayInfo(personnage character) {
+	fmt.Println("Nom :", personnage.Name)
+    fmt.Println("Classe :", personnage.Classe)
+    fmt.Println("PV :", personnage.Health)
+    fmt.Println("Niveau :", personnage.Level)
+    fmt.Println("PV max :", personnage.HealthMax)
+}
