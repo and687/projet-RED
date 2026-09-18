@@ -44,6 +44,18 @@ fmt.Println("nom invalide : les chiffres sont interdit")
 	}
 }
 
+func FormatName(name string) string {
+	name = strings.ToLower(name)
+
+	lettres := []rune(name)
+	if len(lettres) == 0 {
+		return ""
+	}
+
+	lettres [0] = unicode.ToUpper(lettres[0])
+	return string(lettres)
+}
+
 
 func DisplayInfo(personnage character) {
 	fmt.Println("Nom :", personnage.Name)
