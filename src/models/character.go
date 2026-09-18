@@ -20,3 +20,12 @@ func InitCharacter(name string, classe string, health int, level int, healthmax 
 	
 	}
 }
+
+func AskName()string {
+    var name string
+
+    fmt.Print("comment s'appelle votre personnage: ")
+	fmt.Scan(&name)
+
+    return name
+}
