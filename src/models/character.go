@@ -21,6 +21,13 @@ func InitCharacter(name string, classe string, health int, level int, healthmax 
 	}
 }
 
+func CharacterCreation() string {
+	nom := AskName()
+	nomFormate := FormatName(nom)
+
+	return nomFormate
+}
+
 func AskName()string {
 	for{
     var name string
