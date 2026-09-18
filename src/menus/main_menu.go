@@ -17,16 +17,16 @@ func main() {
 
 	switch choix {
 case 1:
-    nom := character.AskName()
-    personnage := character.InitCharacter(nom, "chercheur", 100, 1, 200)
+    nom := character.CharacterCreation()
+    personnage := character.IntCharacter(nom, "chercheur", 100, 1, 200)
     character.DisplayInfo(personnage)
 case 2:
-    nom := character.AskName()
-    personnage := character.InitCharacter(nom, "pilote", 80, 1, 160)
+    nom := character.CharacterCreation()
+    personnage := character.IntCharacter(nom, "pilote", 80, 1, 160)
     character.DisplayInfo(personnage)
 case 3:
-    nom := character.AskName()
-    personnage := character.InitCharacter(nom, "mercenaire", 150, 1, 300)
+    nom := character.CharacterCreation()
+    personnage := character.IntCharacter(nom, "mercenaire", 150, 1, 300)
     character.DisplayInfo(personnage)
 default:
     fmt.Println("Choix invalide")
