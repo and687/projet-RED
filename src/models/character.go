@@ -22,13 +22,28 @@ func InitCharacter(name string, classe string, health int, level int, healthmax 
 }
 
 func AskName()string {
+	for{
     var name string
+	nameValide := true
 
     fmt.Print("comment s'appelle votre personnage: ")
 	fmt.Scan(&name)
 
-    return name
+	for _, caractere := range name {
+		if unicode.IsDigit (caractere) {
+			nameValide = false
+			break
+		}
+	}
+
+   if nameValide {
+	return name
 }
+
+fmt.Println("nom invalide : les chiffres sont interdit")
+	}
+}
+
 
 func DisplayInfo(personnage character) {
 	fmt.Println("Nom :", personnage.Name)
