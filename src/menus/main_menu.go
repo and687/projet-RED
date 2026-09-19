@@ -5,7 +5,7 @@ import (
     character "projet-RED/src/models"
 )
 
-func main() {
+func main_menu() {
 	fmt.Println("bienvenue dans le jeu !")
 	fmt.Println("Choisissez la classe :")
     fmt.Println("1. Chercheur - PV : 100/200")
