@@ -6,7 +6,7 @@ import (
 "strings"
 )
 
-type character struct {
+type Character struct {
 	Name      string
 	Classe    string
 	Health    int
@@ -16,7 +16,7 @@ type character struct {
 }
 
 func InitCharacter(name string, classe string, health int, level int, healthmax int, money int) character {
-	return character{
+	return Character{
 		Name:      name,
 		Classe:    classe,
 		Health:    health,
@@ -48,7 +48,7 @@ func AskName()string {
 		}
 	}
 
-   if nameValide {
+    if nameValide {
 	return name
 }
 
@@ -69,7 +69,7 @@ func FormatName(name string) string {
 }
 
 
-func DisplayInfo(personnage character) {
+func DisplayInfo(personnage Character) {
 	fmt.Println("Nom :", personnage.Name)
     fmt.Println("Classe :", personnage.Classe)
     fmt.Println("PV :", personnage.Health)
