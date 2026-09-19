@@ -33,3 +33,32 @@ default:
 }
 }
 
+func AfficherMenu() {
+	var choix int
+
+	fmt.Println(" Menu principal\n", "1 : Combat\n", "2 : Marchand\n", "3 : Forgeron\n", "4 : Inventaire\n", "9 : Quitter le jeu")
+	fmt.Scan(&choix)
+
+	switch choix {
+
+	case 1:
+		Combat()
+
+	case 2:
+		Marchand()
+
+	case 3:
+		Forgeron()
+
+	case 4:
+		Inventaire()
+
+	case 9:
+		Quitter()
+
+	default:
+		println("Choix invalide")
+		AfficherMenu()
+	}
+
+}
