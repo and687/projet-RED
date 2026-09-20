@@ -1,9 +1,9 @@
-package character 
+package models
 
 import (
 	"fmt"
-"unicode"
-"strings"
+	"strings"
+	"unicode"
 )
 
 type Character struct {
@@ -14,8 +14,9 @@ type Character struct {
 	HealthMax int
 	Money     int
 }
+var Personnage Character
 
-func InitCharacter(name string, classe string, health int, level int, healthmax int, money int) character {
+func InitCharacter(name string, classe string, health int, level int, healthmax int, money int) Character {
 	return Character{
 		Name:      name,
 		Classe:    classe,
@@ -33,26 +34,26 @@ func CharacterCreation() string {
 	return nomFormate
 }
 
-func AskName()string {
-	for{
-    var name string
-	nameValide := true
+func AskName() string {
+	for {
+		var name string
+		nameValide := true
 
-    fmt.Print("comment s'appelle votre personnage: ")
-	fmt.Scan(&name)
+		fmt.Print("comment s'appelle votre personnage: ")
+		fmt.Scan(&name)
 
-	for _, caractere := range name {
-		if unicode.IsDigit (caractere) {
-			nameValide = false
-			break
+		for _, caractere := range name {
+			if unicode.IsDigit(caractere) {
+				nameValide = false
+				break
+			}
 		}
-	}
 
-    if nameValide {
-	return name
-}
+		if nameValide {
+			return name
+		}
 
-fmt.Println("nom invalide : les chiffres sont interdit")
+		fmt.Println("nom invalide : les chiffres sont interdit")
 	}
 }
 
@@ -64,16 +65,15 @@ func FormatName(name string) string {
 		return ""
 	}
 
-	lettres [0] = unicode.ToUpper(lettres[0])
+	lettres[0] = unicode.ToUpper(lettres[0])
 	return string(lettres)
 }
 
-
 func DisplayInfo(personnage Character) {
 	fmt.Println("Nom :", personnage.Name)
-    fmt.Println("Classe :", personnage.Classe)
-    fmt.Println("PV :", personnage.Health)
-    fmt.Println("Niveau :", personnage.Level)
-    fmt.Println("PV max :", personnage.HealthMax)
-	fmt.Println("Money :",  personnage.Money)
+	fmt.Println("Classe :", personnage.Classe)
+	fmt.Println("PV :", personnage.Health)
+	fmt.Println("Niveau :", personnage.Level)
+	fmt.Println("PV max :", personnage.HealthMax)
+	fmt.Println("Money :", personnage.Money)
 }

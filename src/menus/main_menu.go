@@ -1,8 +1,8 @@
-package main_menu
+package menus
 
 import (
     "fmt"
-    character "projet-RED/src/models"
+    "projet-RED/models"
 )
 
 func main_menu() {
@@ -17,17 +17,17 @@ func main_menu() {
 
 	switch choix {
 case 1:
-    nom := character.CharacterCreation()
-    personnage := character.IntCharacter(nom, "chercheur", 100, 1, 200, 150)
-    character.DisplayInfo(personnage)
+    nom := models.CharacterCreation()
+    personnage := models.InitCharacter(nom, "chercheur", 100, 1, 200, 150)
+    models.DisplayInfo(personnage)
 case 2:
-    nom := character.CharacterCreation()
-    personnage := character.IntCharacter(nom, "pilote", 80, 1, 160, 250)
-    character.DisplayInfo(personnage)
+    nom := models.CharacterCreation()
+    personnage := models.InitCharacter(nom, "pilote", 80, 1, 160, 250)
+    models.DisplayInfo(personnage)
 case 3:
-    nom := character.CharacterCreation()
-    personnage := character.IntCharacter(nom, "mercenaire", 150, 1, 300, 50)
-    character.DisplayInfo(personnage)
+    nom := models.CharacterCreation()
+    personnage := models.InitCharacter(nom, "mercenaire", 150, 1, 300, 50)
+    models.DisplayInfo(personnage)
 default:
     fmt.Println("Choix invalide")
 }
@@ -41,20 +41,21 @@ func AfficherMenu() {
 
 	switch choix {
 
-	case 1:
-		Combat()
+	// case 1:
+	// 	Combat()
 
-	case 2:
-		Marchand()
+	// case 2:
+	// 	Marchand()
 
-	case 3:
-		Forgeron()
+	// case 3:
+	// 	Forgeron()
 
 	case 4:
-		Inventaire()
+		AfficherInventaire()
 
-	case 9:
-		Quitter()
+
+	// case 9:
+	// 	Quitter()
 
 	default:
 		println("Choix invalide")
