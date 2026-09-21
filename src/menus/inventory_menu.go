@@ -2,9 +2,9 @@ package menus
 
 import (
 	"fmt"
-	"projet-RED/src/data"
+	//"projet-RED/src/data"
 	"projet-RED/src/models"
-	"time"
+	//"time"
 )
 
 var items []string
@@ -55,17 +55,17 @@ func UtilisationItem(item string) {
 			fmt.Print("Vous etes déja au maximim de vos ponts de vie")
 			AfficherInventaire()
 		}
-	case "Fléchette empoisonnée":
-		fmt.Println("Vous utilisez une fléchette empoisonnée.")
-		for i := 0; i < 3; i++ {
-			time.Sleep(1 * time.Second)
-			data.Monster.Health -= 10
+	// case "Fléchette empoisonnée":
+	// 	fmt.Println("Vous utilisez une fléchette empoisonnée.")
+	// 	for i := 0; i < 3; i++ {
+	// 		time.Sleep(1 * time.Second)
+	// 		data.Monster.Health -= 10
 
-			fmt.Println(data.Monster.Health, "/", data.Monster.HealthMax)
-		}
+	// 		fmt.Println(data.Monster.Health, "/", data.Monster.HealthMax)
+		// }
 
-		SupprimerItems(item)
-		AfficherInventaire()
+		// SupprimerItems(item)
+		// AfficherInventaire()
 
 	default:
 		fmt.Println("Cet objet n'a pas d'effet particulier.")

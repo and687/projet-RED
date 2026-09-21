@@ -1,80 +1,116 @@
 package services
 
-import ( "fmt"
+import (
+	"fmt"
 	"projet-RED/src/data"
-    "projet-RED/src/models")
+	"projet-RED/src/models"
+)
 
-	func characterTurn(personnage *models.Character, ennemi *data.Monster) {
-		fmt.Println("=== a votre tour===")
-		fmt.Println("1. Menu")
+func LancerCombat(personnage *models.Character, ennemi *data.Monster) {
+	CharacterTurn(personnage, ennemi)
+}
+
+func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
+	for {
+		fmt.Println("=== A votre tour ===")
+		fmt.Println("1. Retour menu principal")
 		fmt.Println("2. Attaquer")
 		fmt.Println("3. Inventaire")
 
-		var choix int 
+		var choix int
 		fmt.Scan(&choix)
 
 		switch choix {
 		case 1:
-			AfficherMenu()
+			fmt.Println("Retour au menu principal")
+			return
 
 		case 2:
-			attaque := "attaque basique"
 			degats := 5
-
-			ennemi.Health -=degats
-
-			fmt.Println("Attaque utilisée :", attaque)
-			fmt.Println("Degats infligés :", degats)
+			ennemi.Health -= degats
+			fmt.Println("Attaque utilisée : Attaque basique")
+			fmt.Println("Dégâts infligés :", degats)
 			fmt.Println("PV restants de l'adversaire :", ennemi.Health)
 
+			if ennemi.Health <= 0 {
+				fmt.Println("Le monstre est mort.")
+				return
+			}
+
 		case 3:
-			fmt.Println("===Inventaire===")
-			for i, item :=range items{
-				fmt.Println(i+1, "-", item)
-			}
+			fmt.Println("=== Inventaire ===")
+			fmt.Println("1. Double pistolets")
+			fmt.Println("2. Fusil d'assault")
+			fmt.Println("3. Dragon Slayer")
+			fmt.Println("4. Trousse de soin")
+			fmt.Println("5. Fléchette empoisonnée")
 
-			var choixArme int 
-			fmt.Scan(&choixArme)
+			var choixObjet int
+			fmt.Scan(&choixObjet)
 
-			arme = items[choixArme-1]
-
-			switch arme {
-			case "Doublbe pistolets":
-				ennemi.Health -=10
+			switch choixObjet {
+			case 1:
+				ennemi.Health -= 10
 				fmt.Println("Arme utilisée : Double pistolets")
-				fmt.Println("degats infligés : 10")
-
-		case "Fusil d'assault":
-    ennemi.Health -= 20
-    fmt.Println("Arme utilisée : Fusil d'assault")
-    fmt.Println("Dégâts infligés : 20")
-
-case "Dragon Slayer":
-    ennemi.Health -= 50
-    fmt.Println("Arme utilisée : Dragon Slayer")
-    fmt.Println("Dégâts infligés : 50")
-	
-	case "Trousse de soin"
-personnage.Health +=20
-fmt.Println("Tu utilises une trousse de soin")
-
-case "Fléchette empoisonnée"
-ennemi.Health -= 10
-fmt.Println("Tu utilises une fléchette empoisonnée")
-
-}
+				fmt.Println("Dégâts infligés : 10")
+				fmt.Println("PV restants de l'adversaire :", ennemi.Health)
+			case 2:
+				ennemi.Health -= 15
+				fmt.Println("Arme utilisée : Fusil d'assault")
+				fmt.Println("Dégâts infligés : 15")
+				fmt.Println("PV restants de l'adversaire :", ennemi.Health)
+			case 3:
+				ennemi.Health -= 30
+				fmt.Println("Arme utilisée : Dragon Slayer")
+				fmt.Println("Dégâts infligés : 30")
+				fmt.Println("PV restants de l'adversaire :", ennemi.Health)
+			case 4:
+				personnage.Health += 20
+				if personnage.Health > personnage.HealthMax {
+					personnage.Health = personnage.HealthMax
+				}
+				fmt.Println("Tu utilises une trousse de soin")
+				fmt.Println("PV du joueur :", personnage.Health)
+			case 5:
+				ennemi.Health -= 5
+				fmt.Println("Tu utilises une fléchette empoisonnée")
+				fmt.Println("PV restants de l'adversaire :", ennemi.Health)
+			default:
+				fmt.Println("Choix invalide.")
 			}
+		default:
+			fmt.Println("Choix invalide.")
 		}
 
-		if ennemi.Health > 0 {
-			personnage.Health -= ennemi.Degats
-			fmt.Println(ennemi.Name, "te frappe pour", ennemi.Degats, "degats.")
-			mt.Println("PV du joueur :", personnage.Health)
-} else {
-    fmt.Println("Le monstre est mort.")
-}
+		if ennemi.Health <= 0 {
+			fmt.Println("Le monstre est vaincu !")
+			return
+		}
 
-if models.IsDead(*personnage) {
-	fmt.Println("you loose !")
-	fmt.Println("1. quitter le jeu")
-	fmt.Println("2. R")
+		personnage.Health -= ennemi.Degats
+		fmt.Println(ennemi.Name, "te frappe pour", ennemi.Degats, "dégâts.")
+		fmt.Println("PV du joueur :", personnage.Health)
+
+		if models.IsDead(*personnage) {
+			fmt.Println("Tu as perdu !")
+			fmt.Println("1. Quitter le jeu")
+			fmt.Println("2. Revenir à la création du personnage")
+
+			var choixFin int
+			fmt.Scan(&choixFin)
+
+			switch choixFin {
+			case 1:
+				fmt.Println("Fin du jeu.")
+				return
+			case 2:
+				fmt.Println("Retour à la création du personnage...")
+				models.CharacterCreation()
+				return
+			default:
+				fmt.Println("Choix invalide.")
+				return
+			}
+		}
+	}
+}
