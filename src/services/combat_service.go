@@ -39,7 +39,42 @@ import ( "fmt"
 			arme = items[choixArme-1]
 
 			switch arme {
-			case "DoublePistolets":
+			case "Doublbe pistolets":
 				ennemi.Health -=10
-				fmt.Println("Arme utilisée : DoublePistolets")
+				fmt.Println("Arme utilisée : Double pistolets")
 				fmt.Println("degats infligés : 10")
+
+		case "Fusil d'assault":
+    ennemi.Health -= 20
+    fmt.Println("Arme utilisée : Fusil d'assault")
+    fmt.Println("Dégâts infligés : 20")
+
+case "Dragon Slayer":
+    ennemi.Health -= 50
+    fmt.Println("Arme utilisée : Dragon Slayer")
+    fmt.Println("Dégâts infligés : 50")
+	
+	case "Trousse de soin"
+personnage.Health +=20
+fmt.Println("Tu utilises une trousse de soin")
+
+case "Fléchette empoisonnée"
+ennemi.Health -= 10
+fmt.Println("Tu utilises une fléchette empoisonnée")
+
+}
+			}
+		}
+
+		if ennemi.Health > 0 {
+			personnage.Health -= ennemi.Degats
+			fmt.Println(ennemi.Name, "te frappe pour", ennemi.Degats, "degats.")
+			mt.Println("PV du joueur :", personnage.Health)
+} else {
+    fmt.Println("Le monstre est mort.")
+}
+
+if models.IsDead(*personnage) {
+	fmt.Println("you loose !")
+	fmt.Println("1. quitter le jeu")
+	fmt.Println("2. R")

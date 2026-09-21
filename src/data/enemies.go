@@ -8,6 +8,8 @@ type Monster struct {
 	Recompense int 
 }
 
+var ennemi Monster
+
 func InitGoblin(name string, degats int, health int, recompense int, healthmax int) Monster {
 	return Monster{
 		Name:    name,
