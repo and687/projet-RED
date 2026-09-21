@@ -30,7 +30,7 @@ func Start() {
 		models.DisplayInfo(personnage)
 	default:
 		fmt.Println("Choix invalide")
-	Start()
+		Start()
 	}
 }
 
@@ -45,8 +45,8 @@ func AfficherMenu() {
 	// case 1:
 	// 	Combat()
 
-	// case 2:
-	// 	Marchand()
+	case 2:
+		Acheter()
 
 	// case 3:
 	// 	Forgeron()
