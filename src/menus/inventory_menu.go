@@ -16,11 +16,11 @@ func AfficherInventaire() {
 			fmt.Printf("%d : %s\n", i+1, item)
 		}
 
-		fmt.Println("Souhaitez-vous utiliser un objet ? (Tapez un numéro, ou 0 pour annuler)")
+		fmt.Println("Souhaitez-vous utiliser un objet ? (Tapez un numéro, ou 0 pour retourner au menu principal)")
 		fmt.Scan(&choix)
 
 		if choix == 0 {
-			return
+			AfficherMenu()
 		}
 
 		if choix < 1 || choix > len(items) {
@@ -41,14 +41,18 @@ func AfficherInventaire() {
 func UtilisationItem(item string) {
 	switch item {
 	case "Trousse de soin":
-		fmt.Println("Vous utilisez une trousse de soin. +20 PV")
-		models.Personnage.Health += 20
-		if models.Personnage.Health > models.Personnage.HealthMax {
-			models.Personnage.Health = models.Personnage.HealthMax
+		if models.Personnage.Health < models.Personnage.HealthMax {
+			fmt.Println("Vous utilisez une trousse de soin. +20 PV")
+			models.Personnage.Health += 20
+			if models.Personnage.Health > models.Personnage.HealthMax {
+				models.Personnage.Health = models.Personnage.HealthMax
+			}
+			SupprimerItems(item)
+			AfficherInventaire()
+		} else {
+			fmt.Print("Vous etes déja au maximim de vos ponts de vie\n")
+			AfficherInventaire()
 		}
-		SupprimerItems(item)
-		AfficherInventaire()
-
 	case "Fléchette empoisonnée":
 		fmt.Println("Vous utilisez une fléchette empoisonnée.")
 		SupprimerItems(item)
