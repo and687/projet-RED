@@ -117,9 +117,12 @@ func Acheter() {
 		case choix == 6 && stockage:
 			if models.Personnage.Money >= 0 {
 				models.Personnage.Money -= 0
-				capacité += 5
-				fmt.Println("Vous avez augmenté votre ivnentaire de 5 emplacements")
-				stockage = false
+				if capacité < 30 {
+					capacité += 10
+				} else {
+					stockage = false
+				}
+				fmt.Println("Vous avez augmenté votre ivnentaire de 10 emplacements")
 			}
 
 		case choix == 7 && Potion:
@@ -130,7 +133,6 @@ func Acheter() {
 			} else {
 				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
 			}
-
 		case choix == 0:
 			AfficherMenu()
 			return
