@@ -47,7 +47,7 @@ func Acheter() {
 				items = append(items, "Trousse de soin")
 				fmt.Println("Trousse de soin ajoutée à votre inventaire !")
 			} else {
-				fmt.Println("Vous n'avez pas assez d'or !")
+				fmt.Println("Vous n'avez pas assez d'or !", models.Personnage.Money)
 			}
 
 		case choix == 2 && Flechettes:
@@ -96,7 +96,7 @@ func Acheter() {
 
 		case choix == 0:
 			AfficherMenu()
-				return
+			return
 
 		default:
 			fmt.Println("Choix invalide ou article indisponible.")

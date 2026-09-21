@@ -17,8 +17,8 @@ type Character struct {
 
 var Personnage Character
 
-func InitCharacter(name string, classe string, health int, level int, healthmax int, money int) Character {
-	return Character{
+func InitCharacter(name string, classe string, health int, level int, healthmax int, money int) *Character {
+	return &Character{
 		Name:      name,
 		Classe:    classe,
 		Health:    health,
@@ -70,7 +70,7 @@ func FormatName(name string) string {
 	return string(lettres)
 }
 
-func DisplayInfo(personnage Character) {
+func DisplayInfo(personnage *Character) {
 	fmt.Println("Nom :", personnage.Name)
 	fmt.Println("Classe :", personnage.Classe)
 	fmt.Println("PV :", personnage.Health)
