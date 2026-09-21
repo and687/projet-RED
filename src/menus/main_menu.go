@@ -17,16 +17,16 @@ func Start() {
 	switch choix {
 	case 1:
 		nom := models.CharacterCreation()
-		personnage := models.InitCharacter(nom, "chercheur", 100, 1, 200, 150)
-		models.DisplayInfo(personnage)
+		models.Personnage = *models.InitCharacter(nom, "chercheur", 100, 1, 200, 150)
+		models.DisplayInfo(&models.Personnage)
 	case 2:
 		nom := models.CharacterCreation()
-		personnage := models.InitCharacter(nom, "pilote", 80, 1, 160, 250)
-		models.DisplayInfo(personnage)
+		models.Personnage = *models.InitCharacter(nom, "pilote", 80, 1, 160, 250)
+		models.DisplayInfo(&models.Personnage)
 	case 3:
 		nom := models.CharacterCreation()
-		personnage := models.InitCharacter(nom, "mercenaire", 150, 1, 300, 50)
-		models.DisplayInfo(personnage)
+		models.Personnage = *models.InitCharacter(nom, "mercenaire", 150, 1, 300, 50)
+		models.DisplayInfo(&models.Personnage)
 	default:
 		fmt.Println("Choix invalide")
 		Start()
@@ -43,7 +43,7 @@ func AfficherMenu() {
 	switch choix {
 
 	 case 1:
-	MenuCombat()
+	//MenuCombat()
 
 	case 2:
 		Acheter()
