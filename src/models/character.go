@@ -14,6 +14,7 @@ type Character struct {
 	HealthMax int
 	Money     int
 }
+
 var Personnage Character
 
 func InitCharacter(name string, classe string, health int, level int, healthmax int, money int) Character {
@@ -76,4 +77,12 @@ func DisplayInfo(personnage Character) {
 	fmt.Println("Niveau :", personnage.Level)
 	fmt.Println("PV max :", personnage.HealthMax)
 	fmt.Println("Money :", personnage.Money)
+}
+
+func IsDead(personnage Character) bool {
+	if personnage.Health <= 0 {
+		return true
+	}
+
+	return false
 }
