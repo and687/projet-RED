@@ -1,36 +1,36 @@
 package menus
 
 import (
-    "fmt"
-    "projet-RED/models"
+	"fmt"
+	"projet-RED/src/models"
 )
 
-func main_menu() {
+func Start() {
 	fmt.Println("bienvenue dans le jeu !")
 	fmt.Println("Choisissez la classe :")
-    fmt.Println("1. Chercheur - PV : 100/200")
-    fmt.Println("2. Pilote -PV : 80/160")
-    fmt.Println("3. Mercenaire -PV : 150/300")
+	fmt.Println("1. Chercheur - PV : 100/200")
+	fmt.Println("2. Pilote -PV : 80/160")
+	fmt.Println("3. Mercenaire -PV : 150/300")
 
 	var choix int
 	fmt.Scan(&choix)
 
 	switch choix {
-case 1:
-    nom := models.CharacterCreation()
-    personnage := models.InitCharacter(nom, "chercheur", 100, 1, 200, 150)
-    models.DisplayInfo(personnage)
-case 2:
-    nom := models.CharacterCreation()
-    personnage := models.InitCharacter(nom, "pilote", 80, 1, 160, 250)
-    models.DisplayInfo(personnage)
-case 3:
-    nom := models.CharacterCreation()
-    personnage := models.InitCharacter(nom, "mercenaire", 150, 1, 300, 50)
-    models.DisplayInfo(personnage)
-default:
-    fmt.Println("Choix invalide")
-}
+	case 1:
+		nom := models.CharacterCreation()
+		personnage := models.InitCharacter(nom, "chercheur", 100, 1, 200, 150)
+		models.DisplayInfo(personnage)
+	case 2:
+		nom := models.CharacterCreation()
+		personnage := models.InitCharacter(nom, "pilote", 80, 1, 160, 250)
+		models.DisplayInfo(personnage)
+	case 3:
+		nom := models.CharacterCreation()
+		personnage := models.InitCharacter(nom, "mercenaire", 150, 1, 300, 50)
+		models.DisplayInfo(personnage)
+	default:
+		fmt.Println("Choix invalide")
+	}
 }
 
 func AfficherMenu() {
@@ -52,7 +52,6 @@ func AfficherMenu() {
 
 	case 4:
 		AfficherInventaire()
-
 
 	// case 9:
 	// 	Quitter()

@@ -1,3 +1,3 @@
-module projet-red
+module projet-RED
 
 go 1.27.1

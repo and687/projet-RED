@@ -2,7 +2,7 @@ package menus
 
 import (
 	"fmt"
-	"projet-RED/models"
+	"projet-RED/src/models"
 )
 
 var items []string
