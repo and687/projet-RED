@@ -25,6 +25,7 @@ func AfficherInventaire() {
 
 		if choix < 1 || choix > len(items) {
 			fmt.Println("Choix invalide.")
+			AfficherInventaire()
 			return
 		}
 
@@ -46,12 +47,15 @@ func UtilisationItem(item string) {
 			models.Personnage.Health = models.Personnage.HealthMax
 		}
 		SupprimerItems(item)
+		AfficherInventaire()
 
 	case "Fléchette empoisonnée":
 		fmt.Println("Vous utilisez une fléchette empoisonnée.")
 		SupprimerItems(item)
+		AfficherInventaire()
 	default:
 		fmt.Println("Cet objet n'a pas d'effet particulier.")
+		AfficherInventaire()
 	}
 }
 
@@ -65,5 +69,3 @@ func SupprimerItems(item string) {
 	}
 	fmt.Println("Objet introuvable dans l'inventaire.")
 }
-
-
