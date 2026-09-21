@@ -8,9 +8,9 @@ import (
 func Start() {
 	fmt.Println("bienvenue dans le jeu !")
 	fmt.Println("Choisissez la classe :")
-	fmt.Println("1. Chercheur - PV : 100/200")
-	fmt.Println("2. Pilote -PV : 80/160")
-	fmt.Println("3. Mercenaire -PV : 150/300")
+	fmt.Println("1. Chercheur - PV : 100/200, -Money : 150")
+	fmt.Println("2. Pilote -PV : 80/160, -Money : 250")
+	fmt.Println("3. Mercenaire -PV : 150/300, -Money : 50")
 
 	var choix int
 	fmt.Scan(&choix)
@@ -30,6 +30,7 @@ func Start() {
 		models.DisplayInfo(personnage)
 	default:
 		fmt.Println("Choix invalide")
+	Start()
 	}
 }
 

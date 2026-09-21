@@ -78,3 +78,11 @@ func DisplayInfo(personnage Character) {
 	fmt.Println("PV max :", personnage.HealthMax)
 	fmt.Println("Money :", personnage.Money)
 }
+
+func IsDead(personnage Character) bool {
+	if personnage.Health <= 0 {
+		return true
+	}
+
+	return false
+}
