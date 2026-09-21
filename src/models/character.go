@@ -14,6 +14,7 @@ type Character struct {
 	HealthMax int
 	Money     int
 }
+
 var Personnage Character
 
 func InitCharacter(name string, classe string, health int, level int, healthmax int, money int) Character {

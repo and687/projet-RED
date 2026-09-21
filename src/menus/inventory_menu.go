@@ -66,34 +66,4 @@ func SupprimerItems(item string) {
 	fmt.Println("Objet introuvable dans l'inventaire.")
 }
 
-func AjoutInventaire() {
-	fmt.Println("Que voulez-vous acheter ?")
-	fmt.Println("1 : Trousse de soin (30g)")
-	fmt.Println("2 : Potion de poison (30g)")
 
-	var choix int
-	fmt.Scan(&choix)
-
-	switch choix {
-	case 1:
-		if models.Personnage.Money >= 30 {
-			models.Personnage.Money -= 30
-			items = append(items, "Trousse de soin")
-			fmt.Println("Vous avez dépensé 30g, ajout d'une trousse de soin")
-		} else {
-			fmt.Println("Pas assez d'argent.")
-		}
-
-	case 2:
-		if models.Personnage.Money >= 30 {
-			models.Personnage.Money -= 30
-			items = append(items, "Potion de poison")
-			fmt.Println("Vous avez dépensé 30g, ajout d'une potion de poison")
-		} else {
-			fmt.Println("Pas assez d'argent.")
-		}
-
-	default:
-		fmt.Println("Choix invalide.")
-	}
-}
