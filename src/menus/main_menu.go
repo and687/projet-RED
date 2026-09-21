@@ -42,8 +42,8 @@ func AfficherMenu() {
 
 	switch choix {
 
-	// case 1:
-	// 	Combat()
+	 case 1:
+	MenuCombat()
 
 	case 2:
 		Acheter()
