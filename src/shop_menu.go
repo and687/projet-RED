@@ -62,8 +62,8 @@ func Acheter() {
 
 		case choix == 2 && Flechettes:
 			if len(items) < capacité {
-				if Personnage.Money >= 50 {
-					Personnage.Money -= 50
+				if Personnage.Money >= 0 {
+					Personnage.Money -= 0
 					items = append(items, "Flechette empoisonée")
 					fmt.Println("Flechette empoisonée ajoutée à votre inventaire !")
 				} else {
@@ -75,10 +75,10 @@ func Acheter() {
 
 		case choix == 3 && DoublePistolets:
 			if len(items) < capacité {
-				if Personnage.Money >= 200 {
-					Personnage.Money -= 200
+				if Personnage.Money >= 0 {
+					Personnage.Money -= 0
 					items = append(items, "Double pistolets")
-					fmt.Println("Épée en fer ajoutée à votre inventaire !")
+					fmt.Println("Double pistolets ajoutée à votre inventaire !")
 					DoublePistolets = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
@@ -88,8 +88,8 @@ func Acheter() {
 			}
 		case choix == 4 && FusilAssault:
 			if len(items) < capacité {
-				if Personnage.Money >= 400 {
-					Personnage.Money -= 400
+				if Personnage.Money >= 0 {
+					Personnage.Money -= 0
 					items = append(items, "Fusil d'assault")
 					fmt.Println("Fusil d'assault ajoutée à votre inventaire !")
 					FusilAssault = false
@@ -102,8 +102,8 @@ func Acheter() {
 
 		case choix == 5 && DragonSlayer:
 			if len(items) < capacité {
-				if Personnage.Money >= 1000 {
-					Personnage.Money -= 1000
+				if Personnage.Money >= 0 {
+					Personnage.Money -= 0
 					items = append(items, "Dragon Slayer")
 					fmt.Println("Épée: The Dragon Slayer !!!!! Ajoutée à votre inventaire !")
 					DragonSlayer = false

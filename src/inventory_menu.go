@@ -2,6 +2,7 @@ package src
 
 import (
 	"fmt"
+	"time"
 )
 
 var items []string
@@ -52,17 +53,37 @@ func UtilisationItem(item string) {
 			fmt.Print("Vous etes déja au maximim de vos ponts de vie")
 			AfficherInventaire()
 		}
-	// case "Fléchette empoisonnée":
-	// 	fmt.Println("Vous utilisez une fléchette empoisonnée.")
-	// 	for i := 0; i < 3; i++ {
-	// 		time.Sleep(1 * time.Second)
-	// 		data.Monster.Health -= 10
 
-	// 		fmt.Println(data.Monster.Health, "/", data.Monster.HealthMax)
-	// }
+	case "Fléchette empoisonnée":
+		fmt.Println("Vous utilisez une fléchette empoisonnée.")
+		for i := 0; i < 3; i++ {
+			time.Sleep(1 * time.Second)
+			ennemi.Health -= 10
 
-	// SupprimerItems(item)
-	// AfficherInventaire()
+			fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
+		}
+
+		SupprimerItems(item)
+		AfficherInventaire()
+
+	case "Double pistolets":
+		ennemi.Health -= 20
+		fmt.Println("Arme utilisée : Double pistolets")
+		fmt.Println("Dégâts infligés : 20")
+		fmt.Println("PV restants de l'adversaire :", ennemi.Health)
+		AfficherInventaire()
+	case " Fusil d'assault":
+		ennemi.Health -= 30
+		fmt.Println("Arme utilisée : Fusil d'assault")
+		fmt.Println("Dégâts infligés : 30")
+		fmt.Println("PV restants de l'adversaire :", ennemi.Health)
+		AfficherInventaire()
+	case "Dragon Slayer":
+		ennemi.Health -= 100
+		fmt.Println("Arme utilisée : Dragon Slayer")
+		fmt.Println("Dégâts infligés : 100")
+		fmt.Println("PV restants de l'adversaire :", ennemi.Health)
+		AfficherInventaire()
 
 	default:
 		fmt.Println("Cet objet n'a pas d'effet particulier.")
