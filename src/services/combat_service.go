@@ -47,19 +47,19 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
 
 			switch choixObjet {
 			case 1:
-				ennemi.Health -= 10
+				ennemi.Health -= 20
 				fmt.Println("Arme utilisée : Double pistolets")
-				fmt.Println("Dégâts infligés : 10")
+				fmt.Println("Dégâts infligés : 20")
 				fmt.Println("PV restants de l'adversaire :", ennemi.Health)
 			case 2:
-				ennemi.Health -= 15
+				ennemi.Health -= 30
 				fmt.Println("Arme utilisée : Fusil d'assault")
-				fmt.Println("Dégâts infligés : 15")
+				fmt.Println("Dégâts infligés : 30")
 				fmt.Println("PV restants de l'adversaire :", ennemi.Health)
 			case 3:
-				ennemi.Health -= 30
+				ennemi.Health -= 100
 				fmt.Println("Arme utilisée : Dragon Slayer")
-				fmt.Println("Dégâts infligés : 30")
+				fmt.Println("Dégâts infligés : 100")
 				fmt.Println("PV restants de l'adversaire :", ennemi.Health)
 			case 4:
 				personnage.Health += 20
