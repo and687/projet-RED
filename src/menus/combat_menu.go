@@ -22,19 +22,19 @@ func MenuCombat() {
 
 	switch choix {
 	case 1:
-		monster := data.InitGoblin("Squelette d'entrainement", 5, 50, 10, 50)
+		monster := data.InitGoblin("Squelette d'entrainement", 5, 50, 10, 50, 5)
 		services.LancerCombat(&models.Personnage, &monster)
 	case 2:
-		monster := data.InitGoblin("Squelette", 5, 50, 10, 50)
+		monster := data.InitGoblin("Squelette", 5, 50, 10, 50, 100)
 		services.LancerCombat(&models.Personnage, &monster)
 	case 3:
-		monster := data.InitGoblin("Zombie", 10, 100, 20, 100)
+		monster := data.InitGoblin("Zombie", 10, 100, 20, 100, 20)
 		services.LancerCombat(&models.Personnage, &monster)
 	case 4:
-		monster := data.InitGoblin("Vampire", 30, 200, 50, 200)
+		monster := data.InitGoblin("Vampire", 30, 200, 50, 200, 30)
 		services.LancerCombat(&models.Personnage, &monster)
 	case 5:
-		monster := data.InitGoblin("Dragon Legendaire", 100, 500, 2000, 500)
+		monster := data.InitGoblin("Dragon Legendaire", 100, 500, 2000, 500, 50)
 		services.LancerCombat(&models.Personnage, &monster)
 	case 6:
 		fmt.Println("Tu quittes les combats.")
@@ -50,10 +50,10 @@ func MenuCombat() {
 
 func SaladeDeMonstres() {
 	monstres := []data.Monster{
-		data.InitGoblin("Squelette", 5, 50, 10, 50),
-        data.InitGoblin("Zombie", 10, 100, 20, 100),
-        data.InitGoblin("Vampire", 30, 200, 50, 200),
-        data.InitGoblin("Dragon légendaire", 100, 500, 2000, 500),
+		data.InitGoblin("Squelette", 5, 50, 10, 50, 10),
+		data.InitGoblin("Zombie", 10, 100, 20, 100, 20),
+		data.InitGoblin("Vampire", 30, 200, 50, 200, 30),
+		data.InitGoblin("Dragon légendaire", 100, 500, 2000, 500, 50),
     }
 
 	for !models.IsDead(models.Personnage) {

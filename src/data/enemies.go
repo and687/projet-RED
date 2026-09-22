@@ -6,17 +6,19 @@ type Monster struct {
 	Health     int
 	HealthMax  int
 	Recompense int
+	Experience int
 }
 
 var ennemi Monster
 
-func InitGoblin(name string, degats int, health int, recompense int, healthmax int) Monster {
+func InitGoblin(name string, degats int, health int, recompense int, healthmax int, experience int) Monster {
 	return Monster{
 		Name:       name,
 		Health:     health,
 		Degats:     degats,
 		HealthMax:  healthmax,
 		Recompense: recompense,
+		Experience: experience,
 	}
 }
 

@@ -14,6 +14,8 @@ type Character struct {
 	HealthMax int
 	Money     int
 	Stuff     Stuff
+    Experience int 
+	ExperienceMax int 
 }
 
 type Objet struct {
@@ -37,6 +39,8 @@ func InitCharacter(name string, classe string, health int, level int, healthmax 
 		Level:     level,
 		HealthMax: healthmax,
 		Money:     money,
+		Experience: 0,
+		ExperienceMax: 100,
 	}
 }
 
@@ -97,4 +101,32 @@ func IsDead(personnage Character) bool {
 	}
 
 	return false
+}
+
+func AddExperience(personnage *Character, experienceGagnee int) {
+	if personnage.Level >= 10 {
+		personnage.Level = 10
+		personnage.Experience = 0
+		return
+	}
+
+	personnage.Experience += experienceGagnee
+	fmt.Println("XP gagnée :", experienceGagnee)
+
+	for personnage.Experience >= personnage.ExperienceMax && personnage.Level < 10 {
+		personnage.Experience -= personnage.ExperienceMax
+		personnage.Level++
+		personnage.ExperienceMax += 100
+		personnage.HealthMax += 20
+		personnage.Health = personnage.HealthMax
+
+		fmt.Println("Niveau supérieur !")
+		fmt.Println("Tu es maintenant niveau", personnage.Level)
+		fmt.Println("Tes PV maximum sont maintenant de", personnage.HealthMax)
+	}
+
+	if personnage.Level == 10 {
+		personnage.Experience = 0
+		fmt.Println("Niveau maximum atteint !")
+	}
 }

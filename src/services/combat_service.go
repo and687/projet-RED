@@ -85,6 +85,8 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) bool {
 			fmt.Println("Le monstre est vaincu !")
 			fmt.Println("Tu gagnes", ennemi.Recompense, "d'or !")
 			fmt.Println("Tu as maintenant", personnage.Money, "d'or.")
+			models.AddExperience(personnage, ennemi.Experience)
+		 
 			return false
 		}
 
