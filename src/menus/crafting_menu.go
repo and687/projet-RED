@@ -43,8 +43,8 @@ func Tailleur() {
 				}
 			}
 
-			if len(items) < capacité && Peau && Idole && models.Personnage.Money >= 250 {
-				models.Personnage.Money -= 250
+			if len(items) < capacité && Peau && Idole && models.Personnage.Money >= 0 {
+				models.Personnage.Money -= 0
 
 				models.Personnage.Stuff.Casque = models.Objet{
 					Nom:     "Chapeau d'aventurier",

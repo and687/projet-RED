@@ -149,8 +149,8 @@ func Acheter() {
 
 		case choix == 9:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 50 {
-					models.Personnage.Money -= 50
+				if models.Personnage.Money >= 0 {
+					models.Personnage.Money -= 0
 					items = append(items, "Idole d'or")
 					fmt.Println("Idole d'or ajoutée à votre inventaire !")
 				} else {

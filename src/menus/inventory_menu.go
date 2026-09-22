@@ -62,10 +62,10 @@ func UtilisationItem(item string) {
 	// 		data.Monster.Health -= 10
 
 	// 		fmt.Println(data.Monster.Health, "/", data.Monster.HealthMax)
-		// }
+	// }
 
-		// SupprimerItems(item)
-		// AfficherInventaire()
+	// SupprimerItems(item)
+	// AfficherInventaire()
 
 	default:
 		fmt.Println("Cet objet n'a pas d'effet particulier.")
@@ -82,4 +82,12 @@ func SupprimerItems(item string) {
 		}
 	}
 	fmt.Println("Objet introuvable dans l'inventaire.")
+}
+
+func AfficherEquipement() {
+
+	fmt.Println(models.Personnage.Stuff.Casque, "PV")
+	fmt.Println(models.Personnage.Stuff.Torse, "PV")
+	fmt.Println(models.Personnage.Stuff.Jambiere, "PV")
+
 }
