@@ -120,7 +120,7 @@ func Tailleur() {
 			Tesseract := false
 
 			for _, item := range items {
-				if item == "dent de T-Rex" {
+				if item == "Dent de T-Rex" {
 					Dent = true
 				}
 				if item == "Tesseract" {
@@ -135,7 +135,7 @@ func Tailleur() {
 					Nom:     "Micro short",
 					Defense: 30,
 				}
-				SupprimerItems("dent de T-Rex")
+				SupprimerItems("Dent de T-Rex")
 				SupprimerItems("Tesseract")
 
 				fmt.Println("Bravo ! Vous avez fabriqué la chemise à fleur !")

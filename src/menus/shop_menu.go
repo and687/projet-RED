@@ -18,13 +18,8 @@ func Acheter() {
 
 	for {
 		fmt.Println("Bienvenu dans mon magasin. Que voulez-vous acheter ?")
-
-		if Potion {
-			fmt.Println("1 : Trousse de soin (50g)")
-		}
-		if Flechettes {
-			fmt.Println("2 : Flechette Empoisonée (50g)")
-		}
+		fmt.Println("1 : Trousse de soin (50g)")
+		fmt.Println("2 : Flechette Empoisonée (50g)")
 		if DoublePistolets {
 			fmt.Println("3 : Double pistolets (200g)")
 		}
@@ -40,6 +35,12 @@ func Acheter() {
 		if Gratuit {
 			fmt.Println("7 : Trousse de soin (Gratuit)")
 		}
+		fmt.Println("8 : Peau de serpent (70g)")
+		fmt.Println("9 : Idole d'or (70g)")
+		fmt.Println("10 : Moustache (70g)")
+		fmt.Println("11 : Casquette baseball (70g)")
+		fmt.Println("12 : Dent de T-Rex (70g)")
+		fmt.Println("13 : Tesseract (70g)")
 		fmt.Println("0 : Quitter le magasin")
 
 		var choix int
@@ -47,7 +48,7 @@ func Acheter() {
 
 		switch {
 
-		case choix == 1 && Potion:
+		case choix == 1:
 			if len(items) < capacité {
 				if models.Personnage.Money >= 0 {
 					models.Personnage.Money -= 0
@@ -125,11 +126,87 @@ func Acheter() {
 				fmt.Println("Vous avez augmenté votre ivnentaire de 10 emplacements")
 			}
 
-		case choix == 7 && Potion:
+		case choix == 7:
 			if len(items) < capacité {
 				items = append(items, "Trousse de soin")
 				fmt.Println("Trousse de soin ajoutée à votre inventaire !")
 				Gratuit = false
+			} else {
+				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
+			}
+		case choix == 8:
+			if len(items) < capacité {
+				if models.Personnage.Money >= 0 {
+					models.Personnage.Money -= 0
+					items = append(items, "Peau de serpent")
+					fmt.Println("Peau de serpent ajoutée à votre inventaire !")
+				} else {
+					fmt.Println("Vous n'avez pas assez d'or !", models.Personnage.Money)
+				}
+			} else {
+				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
+			}
+
+		case choix == 9:
+			if len(items) < capacité {
+				if models.Personnage.Money >= 50 {
+					models.Personnage.Money -= 50
+					items = append(items, "Idole d'or")
+					fmt.Println("Idole d'or ajoutée à votre inventaire !")
+				} else {
+					fmt.Println("Vous n'avez pas assez d'or !")
+				}
+			} else {
+				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
+			}
+
+		case choix == 10:
+			if len(items) < capacité {
+				if models.Personnage.Money >= 200 {
+					models.Personnage.Money -= 200
+					items = append(items, "Moustache")
+					fmt.Println("Moustache ajoutée à votre inventaire !")
+				} else {
+					fmt.Println("Vous n'avez pas assez d'or !")
+				}
+			} else {
+				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
+			}
+		case choix == 11:
+			if len(items) < capacité {
+				if models.Personnage.Money >= 400 {
+					models.Personnage.Money -= 400
+					items = append(items, "Casquette baseball")
+					fmt.Println("Casquette baseball ajoutée à votre inventaire !")
+				} else {
+					fmt.Println("Vous n'avez pas assez d'or !")
+				}
+			} else {
+				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
+			}
+
+		case choix == 12:
+			if len(items) < capacité {
+				if models.Personnage.Money >= 1000 {
+					models.Personnage.Money -= 1000
+					items = append(items, "dent de T-Rex")
+					fmt.Println("dent de T-Rex Ajoutée à votre inventaire !")
+				} else {
+					fmt.Println("Vous n'avez pas assez d'or !")
+				}
+			} else {
+				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
+			}
+
+		case choix == 13:
+			if len(items) < capacité {
+				if models.Personnage.Money >= 1000 {
+					models.Personnage.Money -= 1000
+					items = append(items, "Tesseract")
+					fmt.Println("Tesseract Ajoutée à votre inventaire !")
+				} else {
+					fmt.Println("Vous n'avez pas assez d'or !")
+				}
 			} else {
 				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
 			}
