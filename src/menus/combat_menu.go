@@ -43,7 +43,7 @@ func MenuCombat() {
 		fmt.Println("Choix invalide")
 
     case 7: 
-    fmt.Println("=== Salade de monstres ===")
+    fmt.Println("=== bienvenue dans la salade de monstres ===")
     SaladeDeMonstres()
 	}
 }
@@ -68,6 +68,6 @@ func SaladeDeMonstres() {
 		break
 	}
 
-	fmt.Println("Le prochain lonstre arrive!!!")
+	fmt.Println("Le prochain monstre arrive!!!")
 }
 }
