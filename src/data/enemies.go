@@ -19,3 +19,14 @@ func InitGoblin(name string, degats int, health int, recompense int, healthmax i
 		Recompense: recompense,
 	}
 }
+
+func GoblinPattern(monstre Monster, tour int) int {
+	if tour%3 == 0 {
+		return monstre.Degats * 2
+	}
+	return monstre.Degats
+}
+
+func GoblinPatern(monstre Monster, tour int) int {
+	return GoblinPattern(monstre, tour)
+}

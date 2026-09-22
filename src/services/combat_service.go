@@ -11,6 +11,8 @@ func LancerCombat(personnage *models.Character, ennemi *data.Monster) {
 }
 
 func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
+	tour := 1
+
 	for {
 		fmt.Println("=== A votre tour ===")
 		fmt.Println("1. Retour menu principal")
@@ -86,13 +88,16 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
 			return
 		}
 
-		personnage.Health -= ennemi.Degats
+		degats := data.GoblinPattern(*ennemi, tour)
+		personnage.Health -= degats
 		if personnage.Health < 0 {
 			personnage.Health = 0
 		}
 
-		fmt.Println(ennemi.Name, "te frappe pour", ennemi.Degats, "dégâts.")
+		fmt.Println(ennemi.Name, "te frappe pour", degats, "dégâts.")
 		fmt.Println("PV du joueur :", personnage.Health)
+
+		tour++
 
 		if models.IsDead(*personnage) {
 			fmt.Println("Tu as perdu !")
