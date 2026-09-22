@@ -60,14 +60,19 @@ func SaladeDeMonstres() {
 	indice := rand.Intn(len(monstres))
 	monstre := monstres[indice]
 
-	fmt.Println ("Nouveau monstre :", monstre.Name)
-	services.LancerCombat(&models.Personnage, &monstre)
+		fmt.Println("Nouveau monstre :", monstre.Name)
+		quitter := services.LancerCombat(&models.Personnage, &monstre)
 
-	if models.IsDead(models.Personnage) {
-		fmt.Println ("La salade de monstres est terminée.")
-		break
+		if quitter {
+			fmt.Println("Tu quittes la salade de monstres.")
+			return
+		}
+
+		if models.IsDead(models.Personnage) {
+			fmt.Println("La salade de monstres est terminée.")
+			return
+		}
+
+		fmt.Println("Le prochain monstre arrive!!!")
 	}
-
-	fmt.Println("Le prochain monstre arrive!!!")
-}
 }

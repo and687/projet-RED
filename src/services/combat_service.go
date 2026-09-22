@@ -4,13 +4,14 @@ import (
 	"fmt"
 	"projet-RED/src/data"
 	"projet-RED/src/models"
+	
 )
 
-func LancerCombat(personnage *models.Character, ennemi *data.Monster) {
-	CharacterTurn(personnage, ennemi)
+func LancerCombat(personnage *models.Character, ennemi *data.Monster) bool {
+	return CharacterTurn(personnage, ennemi)
 }
 
-func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
+func CharacterTurn(personnage *models.Character, ennemi *data.Monster) bool {
 	tour := 1
 
 	for {
@@ -25,8 +26,7 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
 		switch choix {
 		case 1:
 			fmt.Println("Retour au menu principal")
-			return
-
+			return true
 		case 2:
 			degats := 5
 			ennemi.Health -= degats
@@ -85,7 +85,7 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
 			fmt.Println("Le monstre est vaincu !")
 			fmt.Println("Tu gagnes", ennemi.Recompense, "d'or !")
 			fmt.Println("Tu as maintenant", personnage.Money, "d'or.")
-			return
+			return false
 		}
 
 		degats := data.GoblinPattern(*ennemi, tour)
@@ -101,7 +101,7 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
 
 		if models.IsDead(*personnage) {
 			fmt.Println("Tu as perdu !")
-			return
+			return false
 		}
 	}
 }
