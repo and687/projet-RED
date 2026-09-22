@@ -58,7 +58,7 @@ func AfficherMenu() {
 		AfficherEquipement()
 
 	// case 9:
-	Quitter()
+	// Quitter()
 
 	default:
 		println("Choix invalide")

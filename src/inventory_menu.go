@@ -2,7 +2,6 @@ package src
 
 import (
 	"fmt"
-	"time"
 )
 
 var items []string

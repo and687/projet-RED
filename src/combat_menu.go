@@ -22,7 +22,7 @@ func MenuCombat() {
 		monster := InitGoblin("Squelette d'entrainement", 5, 50, 10, 50, 5)
 		LancerCombat(&Personnage, &monster)
 	case 2:
-		monster := data.InitGoblin("Squelette", 5, 50, 10, 50, 100)
+		monster := InitGoblin("Squelette", 5, 50, 10, 50, 100)
 		LancerCombat(&Personnage, &monster)
 	case 3:
 		monster := InitGoblin("Zombie", 10, 100, 20, 100, 20)

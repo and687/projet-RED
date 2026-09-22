@@ -1,15 +1,15 @@
 package src
 
 import (
-    "fmt"
-    "time"
+	"fmt"
+	"time"
 )
  
-func LancerCombat(personnage *models.Character, ennemi *data.Monster) bool {
+func LancerCombat(personnage *Character, ennemi *Monster) bool {
     return CharacterTurn(personnage, ennemi)
 }
  
-func CharacterTurn(personnage *models.Character, ennemi *data.Monster) bool {
+func CharacterTurn(personnage *Character, ennemi *Monster) bool {
     tour := 1
  
     for {
@@ -34,14 +34,14 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) bool {
  
         case 3:
  
-            if len(inventaire.Items) == 0 {
+            if len(items) == 0 {
                 fmt.Println("Votre inventaire est vide.")
                 continue
             }
  
             fmt.Println("=== Inventaire ===")
  
-            for i, item := range inventaire.Items {
+            for i, item := range items {
                 fmt.Println(i+1, "-", item)
             }
  
@@ -50,12 +50,12 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) bool {
             var choixItem int
             fmt.Scan(&choixItem)
  
-            if choixItem < 1 || choixItem > len(inventaire.Items) {
+            if choixItem < 1 || choixItem > len(items) {
                 fmt.Println("Choix invalide.")
                 continue
             }
  
-            item := inventaire.Items[choixItem-1]
+            item := items[choixItem-1]
  
             switch item {
             case "Trousse de soin":

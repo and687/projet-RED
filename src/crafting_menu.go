@@ -45,7 +45,7 @@ func Tailleur() {
 			if len(items) < capacité && Peau && Idole && Personnage.Money >= 0 {
 				Personnage.Money -= 0
 
-				Personnage.Stuff.Casque = models.Objet{
+				Personnage.Stuff.Casque = Objet{
 					Nom:     "Chapeau d'aventurier",
 					Defense: 10,
 				}
@@ -88,7 +88,7 @@ func Tailleur() {
 			if len(items) < capacité && Moustache && Casquette && Personnage.Money >= 250 {
 				Personnage.Money -= 250
 
-				Personnage.Stuff.Torse = models.Objet{
+				Personnage.Stuff.Torse = Objet{
 					Nom:     "Chemise à fleur",
 					Defense: 50,
 				}
@@ -130,7 +130,7 @@ func Tailleur() {
 			if len(items) < capacité && Dent && Tesseract && Personnage.Money >= 250 {
 				Personnage.Money -= 250
 
-				Personnage.Stuff.Jambiere = models.Objet{
+				Personnage.Stuff.Jambiere = Objet{
 					Nom:     "Micro short",
 					Defense: 30,
 				}

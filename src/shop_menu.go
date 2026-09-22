@@ -54,7 +54,7 @@ func Acheter() {
 					items = append(items, "Trousse de soin")
 					fmt.Println("Trousse de soin ajoutée à votre inventaire !")
 				} else {
-					fmt.Println("Vous n'avez pas assez d'or !", models.Personnage.Money)
+					fmt.Println("Vous n'avez pas assez d'or !", Personnage.Money)
 				}
 			} else {
 				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
@@ -140,7 +140,7 @@ func Acheter() {
 					items = append(items, "Peau de serpent")
 					fmt.Println("Peau de serpent ajoutée à votre inventaire !")
 				} else {
-					fmt.Println("Vous n'avez pas assez d'or !", models.Personnage.Money)
+					fmt.Println("Vous n'avez pas assez d'or !", Personnage.Money)
 				}
 			} else {
 				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
