@@ -1,4 +1,4 @@
-package data
+package src
 
 type Monster struct {
 	Name       string

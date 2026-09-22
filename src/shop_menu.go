@@ -1,8 +1,7 @@
-package menus
+package src
 
 import (
 	"fmt"
-	"projet-RED/src/models"
 )
 
 var Potion bool = true
@@ -50,8 +49,8 @@ func Acheter() {
 
 		case choix == 1:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 0 {
-					models.Personnage.Money -= 0
+				if Personnage.Money >= 0 {
+					Personnage.Money -= 0
 					items = append(items, "Trousse de soin")
 					fmt.Println("Trousse de soin ajoutée à votre inventaire !")
 				} else {
@@ -63,8 +62,8 @@ func Acheter() {
 
 		case choix == 2 && Flechettes:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 50 {
-					models.Personnage.Money -= 50
+				if Personnage.Money >= 50 {
+					Personnage.Money -= 50
 					items = append(items, "Flechette empoisonée")
 					fmt.Println("Flechette empoisonée ajoutée à votre inventaire !")
 				} else {
@@ -76,8 +75,8 @@ func Acheter() {
 
 		case choix == 3 && DoublePistolets:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 200 {
-					models.Personnage.Money -= 200
+				if Personnage.Money >= 200 {
+					Personnage.Money -= 200
 					items = append(items, "Double pistolets")
 					fmt.Println("Épée en fer ajoutée à votre inventaire !")
 					DoublePistolets = false
@@ -89,8 +88,8 @@ func Acheter() {
 			}
 		case choix == 4 && FusilAssault:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 400 {
-					models.Personnage.Money -= 400
+				if Personnage.Money >= 400 {
+					Personnage.Money -= 400
 					items = append(items, "Fusil d'assault")
 					fmt.Println("Fusil d'assault ajoutée à votre inventaire !")
 					FusilAssault = false
@@ -103,8 +102,8 @@ func Acheter() {
 
 		case choix == 5 && DragonSlayer:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 1000 {
-					models.Personnage.Money -= 1000
+				if Personnage.Money >= 1000 {
+					Personnage.Money -= 1000
 					items = append(items, "Dragon Slayer")
 					fmt.Println("Épée: The Dragon Slayer !!!!! Ajoutée à votre inventaire !")
 					DragonSlayer = false
@@ -116,8 +115,8 @@ func Acheter() {
 			}
 
 		case choix == 6 && stockage:
-			if models.Personnage.Money >= 0 {
-				models.Personnage.Money -= 0
+			if Personnage.Money >= 0 {
+				Personnage.Money -= 0
 				if capacité < 30 {
 					capacité += 10
 				} else {
@@ -136,8 +135,8 @@ func Acheter() {
 			}
 		case choix == 8:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 0 {
-					models.Personnage.Money -= 0
+				if Personnage.Money >= 0 {
+					Personnage.Money -= 0
 					items = append(items, "Peau de serpent")
 					fmt.Println("Peau de serpent ajoutée à votre inventaire !")
 				} else {
@@ -149,8 +148,8 @@ func Acheter() {
 
 		case choix == 9:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 0 {
-					models.Personnage.Money -= 0
+				if Personnage.Money >= 0 {
+					Personnage.Money -= 0
 					items = append(items, "Idole d'or")
 					fmt.Println("Idole d'or ajoutée à votre inventaire !")
 				} else {
@@ -162,8 +161,8 @@ func Acheter() {
 
 		case choix == 10:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 200 {
-					models.Personnage.Money -= 200
+				if Personnage.Money >= 200 {
+					Personnage.Money -= 200
 					items = append(items, "Moustache")
 					fmt.Println("Moustache ajoutée à votre inventaire !")
 				} else {
@@ -174,8 +173,8 @@ func Acheter() {
 			}
 		case choix == 11:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 400 {
-					models.Personnage.Money -= 400
+				if Personnage.Money >= 400 {
+					Personnage.Money -= 400
 					items = append(items, "Casquette baseball")
 					fmt.Println("Casquette baseball ajoutée à votre inventaire !")
 				} else {
@@ -187,8 +186,8 @@ func Acheter() {
 
 		case choix == 12:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 1000 {
-					models.Personnage.Money -= 1000
+				if Personnage.Money >= 1000 {
+					Personnage.Money -= 1000
 					items = append(items, "dent de T-Rex")
 					fmt.Println("dent de T-Rex Ajoutée à votre inventaire !")
 				} else {
@@ -200,8 +199,8 @@ func Acheter() {
 
 		case choix == 13:
 			if len(items) < capacité {
-				if models.Personnage.Money >= 1000 {
-					models.Personnage.Money -= 1000
+				if Personnage.Money >= 1000 {
+					Personnage.Money -= 1000
 					items = append(items, "Tesseract")
 					fmt.Println("Tesseract Ajoutée à votre inventaire !")
 				} else {

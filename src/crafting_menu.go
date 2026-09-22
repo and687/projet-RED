@@ -1,8 +1,7 @@
-package menus
+package src
 
 import (
 	"fmt"
-	"projet-RED/src/models"
 )
 
 func Tailleur() {
@@ -43,10 +42,10 @@ func Tailleur() {
 				}
 			}
 
-			if len(items) < capacité && Peau && Idole && models.Personnage.Money >= 0 {
-				models.Personnage.Money -= 0
+			if len(items) < capacité && Peau && Idole && Personnage.Money >= 0 {
+				Personnage.Money -= 0
 
-				models.Personnage.Stuff.Casque = models.Objet{
+				Personnage.Stuff.Casque = models.Objet{
 					Nom:     "Chapeau d'aventurier",
 					Defense: 10,
 				}
@@ -86,10 +85,10 @@ func Tailleur() {
 				}
 			}
 
-			if len(items) < capacité && Moustache && Casquette && models.Personnage.Money >= 250 {
-				models.Personnage.Money -= 250
+			if len(items) < capacité && Moustache && Casquette && Personnage.Money >= 250 {
+				Personnage.Money -= 250
 
-				models.Personnage.Stuff.Torse = models.Objet{
+				Personnage.Stuff.Torse = models.Objet{
 					Nom:     "Chemise à fleur",
 					Defense: 50,
 				}
@@ -128,10 +127,10 @@ func Tailleur() {
 				}
 			}
 
-			if len(items) < capacité && Dent && Tesseract && models.Personnage.Money >= 250 {
-				models.Personnage.Money -= 250
+			if len(items) < capacité && Dent && Tesseract && Personnage.Money >= 250 {
+				Personnage.Money -= 250
 
-				models.Personnage.Stuff.Jambiere = models.Objet{
+				Personnage.Stuff.Jambiere = models.Objet{
 					Nom:     "Micro short",
 					Defense: 30,
 				}

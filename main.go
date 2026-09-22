@@ -1,17 +1,16 @@
 package main
 
-import ("projet-RED/src/menus"
-"projet-RED/src/models"
+import ( "projet-RED/src"
 "fmt")
 
 func main() {
     for {
-        menus.Start()
+        src.Start()
 
         for {
-            menus.AfficherMenu()
+           src.AfficherMenu()
 
-            if models.IsDead(models.Personnage) {
+            if src.IsDead(src.Personnage) {
                 fmt.Println("Tu es mort !")
                 fmt.Println("1. Recommencer")
                 fmt.Println("2. Quitter")

@@ -1,8 +1,7 @@
-package menus
+package src
 
 import (
-	"fmt"
-	"projet-RED/src/models"
+	"fmt"	
 )
 
 func Start() {
@@ -16,17 +15,17 @@ func Start() {
 	fmt.Scan(&choix)
 	switch choix {
 	case 1:
-		nom := models.CharacterCreation()
-		models.Personnage = *models.InitCharacter(nom, "chercheur", 100, 1, 200, 150)
-		models.DisplayInfo(&models.Personnage)
+		nom := CharacterCreation()
+		Personnage = *InitCharacter(nom, "chercheur", 100, 1, 200, 150)
+		DisplayInfo(&Personnage)
 	case 2:
-		nom := models.CharacterCreation()
-		models.Personnage = *models.InitCharacter(nom, "pilote", 80, 1, 160, 250)
-		models.DisplayInfo(&models.Personnage)
+		nom := CharacterCreation()
+		Personnage = *InitCharacter(nom, "pilote", 80, 1, 160, 250)
+		DisplayInfo(&Personnage)
 	case 3:
-		nom := models.CharacterCreation()
-		models.Personnage = *models.InitCharacter(nom, "mercenaire", 150, 1, 300, 50)
-		models.DisplayInfo(&models.Personnage)
+		nom := CharacterCreation()
+		Personnage = *InitCharacter(nom, "mercenaire", 150, 1, 300, 50)
+		DisplayInfo(&Personnage)
 	default:
 		fmt.Println("Choix invalide")
 		Start()
@@ -37,8 +36,8 @@ func AfficherMenu() {
 	var choix int
 
 	fmt.Println(" Menu principal\n", "1 : Combat\n", "2 : Marchand\n", "3 : Tailleur\n", "4 : Inventaire\n", "5 : Equipement\n", "9 : Quitter le jeu")
-	fmt.Printf("Vous avez %d d'or !\n", models.Personnage.Money)
-	fmt.Printf("Vous avez %d / %d Pv\n", models.Personnage.Health, models.Personnage.HealthMax)
+	fmt.Printf("Vous avez %d d'or !\n", Personnage.Money)
+	fmt.Printf("Vous avez %d / %d Pv\n", Personnage.Health, Personnage.HealthMax)
 	fmt.Scan(&choix)
 
 	switch choix {
@@ -59,7 +58,7 @@ func AfficherMenu() {
 		AfficherEquipement()
 
 	// case 9:
-	// 	Quitter()
+	Quitter()
 
 	default:
 		println("Choix invalide")

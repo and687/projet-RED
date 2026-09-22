@@ -1,10 +1,8 @@
-package menus
+package src
 
 import (
 	"fmt"
-	//"projet-RED/src/data"
-	"projet-RED/src/models"
-	//"time"
+	"time"
 )
 
 var items []string
@@ -43,11 +41,11 @@ func AfficherInventaire() {
 func UtilisationItem(item string) {
 	switch item {
 	case "Trousse de soin":
-		if models.Personnage.Health < models.Personnage.HealthMax {
+		if Personnage.Health < Personnage.HealthMax {
 			fmt.Println("Vous utilisez une trousse de soin. +20 PV")
-			models.Personnage.Health += 20
-			if models.Personnage.Health > models.Personnage.HealthMax {
-				models.Personnage.Health = models.Personnage.HealthMax
+			Personnage.Health += 20
+			if Personnage.Health > Personnage.HealthMax {
+				Personnage.Health = Personnage.HealthMax
 			}
 			SupprimerItems(item)
 			AfficherInventaire()
@@ -86,8 +84,8 @@ func SupprimerItems(item string) {
 
 func AfficherEquipement() {
 
-	fmt.Println(models.Personnage.Stuff.Casque, "PV")
-	fmt.Println(models.Personnage.Stuff.Torse, "PV")
-	fmt.Println(models.Personnage.Stuff.Jambiere, "PV")
+	fmt.Println(Personnage.Stuff.Casque, "PV")
+	fmt.Println(Personnage.Stuff.Torse, "PV")
+	fmt.Println(Personnage.Stuff.Jambiere, "PV")
 
 }
