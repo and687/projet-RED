@@ -29,8 +29,6 @@ func Tailleur() {
 			fmt.Println("Très bien, la chemise à fleur ne sera pas fabriqué.")
 			return
 		}
-		fmt.Scan(&approuved)
-
 		if approuved == "oui" {
 
 			Peau := false
@@ -61,7 +59,7 @@ func Tailleur() {
 		fmt.Println("Voulez-vous la chemise à fleur ? (oui/non)")
 		fmt.Println("- 1 une moustache")
 		fmt.Println("- 1 casquette de baseball")
-		fmt.Println("- 600 gold")
+		fmt.Println("- 250 gold")
 		fmt.Scan(&approuved)
 
 		if approuved == "non" {
@@ -95,8 +93,16 @@ func Tailleur() {
 		}
 	}
 	if choix == 3 {
-		fmt.Println("Voulez-vous le Micro short ? (oui/non)\n 1 dent de T-rex\n 1 Tesseract\n 600 gold")
+		fmt.Println("Voulez-vous le micro short ? (oui/non)")
+		fmt.Println("- 1 Dent de t-rex")
+		fmt.Println("- 1 Tesseract ")
+		fmt.Println("- 250 gold")
 		fmt.Scan(&approuved)
+
+		if approuved == "non" {
+			fmt.Println("Très bien, le micro short ne sera pas fabriqué.")
+			return
+		}
 
 		if approuved == "oui" {
 
@@ -104,7 +110,7 @@ func Tailleur() {
 			Tesseract := false
 
 			for _, item := range items {
-				if item == "Dent" {
+				if item == "dent de T-rex" {
 					Dent = true
 				}
 				if item == "Tesseract" {
@@ -112,12 +118,12 @@ func Tailleur() {
 				}
 			}
 
-			if len(items) < capacité && Dent && Tesseract && models.Personnage.Money >= 350 {
-				models.Personnage.Money -= 350
+			if len(items) < capacité && Dent && Tesseract && models.Personnage.Money >= 250 {
+				models.Personnage.Money -= 250
 
-				items = append(items, "micro short")
+				items = append(items, "chemise à fleur")
 
-				fmt.Println("Bravo ! Vous avez fabriqué le micro short !")
+				fmt.Println("Bravo ! Vous avez fabriqué la chemise à fleur !")
 			} else {
 				fmt.Println("Impossible de fabriquer l'objet (manque d'objets, d'or, ou inventaire plein).")
 			}

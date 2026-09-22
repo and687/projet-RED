@@ -13,6 +13,18 @@ type Character struct {
 	Level     int
 	HealthMax int
 	Money     int
+	stuff     Stuff
+}
+
+type Objet struct {
+	nom     string
+	Defense int
+}
+
+type Stuff struct {
+	Casque   Objet
+	Torse    Objet
+	Jambiere Objet
 }
 
 var Personnage Character

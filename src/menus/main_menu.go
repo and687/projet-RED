@@ -49,8 +49,8 @@ func AfficherMenu() {
 	case 2:
 		Acheter()
 
-	// case 3:
-	// 	Forgeron()
+	case 3:
+		Tailleur()
 
 	case 4:
 		AfficherInventaire()
