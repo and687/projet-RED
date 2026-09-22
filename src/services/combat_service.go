@@ -32,11 +32,6 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
 			fmt.Println("Dégâts infligés :", degats)
 			fmt.Println("PV restants de l'adversaire :", ennemi.Health)
 
-			if ennemi.Health <= 0 {
-				fmt.Println("Le monstre est mort.")
-				return
-			}
-
 		case 3:
 			fmt.Println("=== Inventaire ===")
 			fmt.Println("1. Double pistolets")
@@ -83,7 +78,11 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
 		}
 
 		if ennemi.Health <= 0 {
+			ennemi.Health = 0
+			personnage.Money += ennemi.Recompense
 			fmt.Println("Le monstre est vaincu !")
+			fmt.Println("Tu gagnes", ennemi.Recompense, "d'or !")
+			fmt.Println("Tu as maintenant", personnage.Money, "d'or.")
 			return
 		}
 
