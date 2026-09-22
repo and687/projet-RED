@@ -5,6 +5,7 @@ import (
 	"projet-RED/src/data"
 	"projet-RED/src/models"
 	"projet-RED/src/services"
+    "math/rand"
 )
 
 func MenuCombat() {
@@ -14,6 +15,7 @@ func MenuCombat() {
 	fmt.Println("4. Vampire")
 	fmt.Println("5. Dragon légendaire")
 	fmt.Println("6. Quitter les combats")
+    fmt.Println("7. la salade de monstre")
 
 	var choix int
 	fmt.Scan(&choix)
@@ -39,5 +41,33 @@ func MenuCombat() {
 		return
 	default:
 		fmt.Println("Choix invalide")
+
+    case 7: 
+    fmt.Println("=== Salade de monstres ===")
+    SaladeDeMonstres()
 	}
+}
+
+func SaladeDeMonstres() {
+	monstres := []data.Monster{
+		data.InitGoblin("Squelette", 5, 50, 10, 50),
+        data.InitGoblin("Zombie", 10, 100, 20, 100),
+        data.InitGoblin("Vampire", 30, 200, 50, 200),
+        data.InitGoblin("Dragon légendaire", 100, 500, 2000, 500),
+    }
+
+	for !models.IsDead(models.Personnage) {
+	indice := rand.Intn(len(monstres))
+	monstre := monstres[indice]
+
+	fmt.Println ("Nouveau monstre :", monstre.Name)
+	services.LancerCombat(&models.Personnage, &monstre)
+
+	if models.IsDead(models.Personnage) {
+		fmt.Println ("La salade de monstres est terminée.")
+		break
+	}
+
+	fmt.Println("Le prochain lonstre arrive!!!")
+}
 }
