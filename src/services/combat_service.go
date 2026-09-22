@@ -88,29 +88,16 @@ func CharacterTurn(personnage *models.Character, ennemi *data.Monster) {
 		}
 
 		personnage.Health -= ennemi.Degats
+		if personnage.Health < 0 {
+			personnage.Health = 0
+		}
+
 		fmt.Println(ennemi.Name, "te frappe pour", ennemi.Degats, "dégâts.")
 		fmt.Println("PV du joueur :", personnage.Health)
 
 		if models.IsDead(*personnage) {
 			fmt.Println("Tu as perdu !")
-			fmt.Println("1. Quitter le jeu")
-			fmt.Println("2. Revenir à la création du personnage")
-
-			var choixFin int
-			fmt.Scan(&choixFin)
-
-			switch choixFin {
-			case 1:
-				fmt.Println("Fin du jeu.")
-				return
-			case 2:
-				fmt.Println("Retour à la création du personnage...")
-				models.CharacterCreation()
-				return
-			default:
-				fmt.Println("Choix invalide.")
-				return
-			}
+			return
 		}
 	}
 }
