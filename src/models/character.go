@@ -13,11 +13,11 @@ type Character struct {
 	Level     int
 	HealthMax int
 	Money     int
-	stuff     Stuff
+	Stuff     Stuff
 }
 
 type Objet struct {
-	nom     string
+	Nom     string
 	Defense int
 }
 

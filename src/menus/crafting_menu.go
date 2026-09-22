@@ -46,7 +46,12 @@ func Tailleur() {
 			if len(items) < capacité && Peau && Idole && models.Personnage.Money >= 250 {
 				models.Personnage.Money -= 250
 
-				items = append(items, "chapeau d'aventurier")
+				models.Personnage.Stuff.Casque = models.Objet{
+					Nom:     "Chapeau d'aventurier",
+					Defense: 10,
+				}
+				SupprimerItems("Peau de serpent")
+				SupprimerItems("Idole d'or")
 
 				fmt.Println("Bravo ! Vous avez fabriqué le chapeau d'aventurier !")
 			} else {
@@ -84,7 +89,12 @@ func Tailleur() {
 			if len(items) < capacité && Moustache && Casquette && models.Personnage.Money >= 250 {
 				models.Personnage.Money -= 250
 
-				items = append(items, "chemise à fleur")
+				models.Personnage.Stuff.Torse = models.Objet{
+					Nom:     "Chemise à fleur",
+					Defense: 50,
+				}
+				SupprimerItems("Moustache")
+				SupprimerItems("Casquette")
 
 				fmt.Println("Bravo ! Vous avez fabriqué la chemise à fleur !")
 			} else {
@@ -94,7 +104,7 @@ func Tailleur() {
 	}
 	if choix == 3 {
 		fmt.Println("Voulez-vous le micro short ? (oui/non)")
-		fmt.Println("- 1 Dent de t-rex")
+		fmt.Println("- 1 Dent de t-Rex")
 		fmt.Println("- 1 Tesseract ")
 		fmt.Println("- 250 gold")
 		fmt.Scan(&approuved)
@@ -110,7 +120,7 @@ func Tailleur() {
 			Tesseract := false
 
 			for _, item := range items {
-				if item == "dent de T-rex" {
+				if item == "dent de T-Rex" {
 					Dent = true
 				}
 				if item == "Tesseract" {
@@ -121,7 +131,12 @@ func Tailleur() {
 			if len(items) < capacité && Dent && Tesseract && models.Personnage.Money >= 250 {
 				models.Personnage.Money -= 250
 
-				items = append(items, "chemise à fleur")
+				models.Personnage.Stuff.Jambiere = models.Objet{
+					Nom:     "Micro short",
+					Defense: 30,
+				}
+				SupprimerItems("dent de T-Rex")
+				SupprimerItems("Tesseract")
 
 				fmt.Println("Bravo ! Vous avez fabriqué la chemise à fleur !")
 			} else {
