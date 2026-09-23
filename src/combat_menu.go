@@ -8,7 +8,7 @@ import (
 var étage2 = false
 var étage3 = false
 var étage4 = false
-var étage5 = false
+var étage5 = true
 
 func MenuCombat() {
 	fmt.Println("1. Manequin d'entraînement")
@@ -102,6 +102,8 @@ func SaladeDeMonstres() {
 		InitGoblin("Dragon légendaire", 8, 350, 300, 350, 200),
 	}
 
+	monstresBattus := 0
+
 	for !IsDead(Personnage) {
 		indice := rand.Intn(len(monstres))
 		monstre := monstres[indice]
@@ -111,13 +113,17 @@ func SaladeDeMonstres() {
 
 		if quitter {
 			fmt.Println("Tu quittes la salade de monstres.")
+			fmt.Println("Tu as battu", monstresBattus, "monstres.")
 			return
 		}
 
 		if IsDead(Personnage) {
 			fmt.Println("La salade de monstres est terminée.")
+			fmt.Println("Tu as battu", monstresBattus, "monstres.")
 			return
 		}
+
+		monstresBattus++
 
 		fmt.Println("Le prochain monstre arrive!!!")
 	}
