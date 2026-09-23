@@ -17,7 +17,7 @@ func Acheter() {
 
 	for {
 		fmt.Println("Bienvenu dans mon magasin. Que voulez-vous acheter ?")
-		fmt.Println("1 : Trousse de soin (50g)")
+		fmt.Println("1 : Trousse de soins (50g)")
 		fmt.Println("2 : Fléchette Empoisonée (60g)")
 		if DoublePistolets {
 			fmt.Println("3 : Double pistolets (180g)")
@@ -51,8 +51,8 @@ func Acheter() {
 			if len(items) < capacité {
 				if Personnage.Money >= 50 {
 					Personnage.Money -= 50
-					items = append(items, "Trousse de soin")
-					fmt.Println("Trousse de soin ajoutée à votre inventaire !")
+					items = append(items, "Trousse de soins")
+					fmt.Println("Trousse de soins ajoutée à votre inventaire !")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !", Personnage.Money)
 				}

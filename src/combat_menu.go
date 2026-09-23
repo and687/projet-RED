@@ -8,6 +8,7 @@ import (
 var étage2 = false
 var étage3 = false
 var étage4 = false
+var étage5 = false
 
 func MenuCombat() {
 	fmt.Println("1. Manequin d'entraînement")
@@ -22,8 +23,10 @@ func MenuCombat() {
 	if étage4 {
 		fmt.Println("5. Quatrieme étage")
 	}
+	if étage5 {
+		fmt.Println("7. la salade de monstre")
+	}
 	fmt.Println("6. Quitter les combats")
-	fmt.Println("7. la salade de monstre")
 
 	var choix int
 	fmt.Scan(&choix)
@@ -69,6 +72,11 @@ func MenuCombat() {
 		}
 		monster := InitGoblin("Dragon Legendaire", 28, 350, 300, 350, 200)
 		LancerCombat(&Personnage, &monster)
+		if monster.Health <= 0 {
+			étage5 = true
+			fmt.Println("La salade de monstre est débloqué !")
+		}
+
 	case 6:
 		fmt.Println("Tu quittes les combats.")
 		return
@@ -77,6 +85,10 @@ func MenuCombat() {
 		fmt.Println("Choix invalide")
 
 	case 7:
+		if !étage5 {
+			fmt.Println("Vous n'avez pas accès à cet étage")
+			return
+		}
 		fmt.Println("=== bienvenue dans la salade de monstres ===")
 		SaladeDeMonstres()
 	}
@@ -84,17 +96,17 @@ func MenuCombat() {
 
 func SaladeDeMonstres() {
 	monstres := []Monster{
-		InitGoblin("Squelette", 5, 50, 10, 50, 10),
-		InitGoblin("Zombie", 10, 100, 20, 100, 20),
-		InitGoblin("Vampire", 30, 200, 50, 200, 30),
-		InitGoblin("Dragon légendaire", 100, 500, 2000, 500, 50),
+		InitGoblin("Squelette", 8, 55, 35, 55, 60),
+		InitGoblin("Zombie", 12, 95, 60, 95, 90),
+		InitGoblin("Vampire", 18, 150, 110, 150, 120),
+		InitGoblin("Dragon légendaire", 8, 350, 300, 350, 200),
 	}
 
 	for !IsDead(Personnage) {
 		indice := rand.Intn(len(monstres))
 		monstre := monstres[indice]
 
-		fmt.Println("Nouveau monstre :", monstre.Name)
+		fmt.Println("Nouveau monstre :")
 		quitter := LancerCombat(&Personnage, &monstre)
 
 		if quitter {
