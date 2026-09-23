@@ -99,26 +99,27 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 		tour++
 
 		if IsDead(*personnage) {
-			fmt.Println("Tu as perdu !")
-			ReinitialiséPersonnage(&Personnage)
-			return false
-		}
 
-		if IsDead(*personnage) {
-			if ennemi.Name == "Manequin d'entraînement" {
-				personnage.Health = personnage.HealthMax
-				fmt.Println("Tu as perdu l'entraînement.")
-				fmt.Println("Tes statistiques et ton inventaire sont conservés.")
-				return false
-			}
+    if ennemi.Name == "Manequin d'entraînement" {
+        fmt.Println("Tu as perdu l'entraînement.")
+        fmt.Println("Tes statistiques et ton inventaire sont conservés.")
+        return false
+    }
 
-			fmt.Println("Tu as perdu le combat.")
+    // Vrai combat
+    fmt.Println("Tu as perdu !")
+    ReinitialiséPersonnage(personnage)
+    return false
+
+	fmt.Println("Tu as perdu le combat.")
 			return false
 		}
 	}
 }
 
 func TrainingFight(personnage *Character) bool {
+	healthAvantTraining := personnage.Health
+
 	monstre := InitGoblin(
 		"Manequin d'entraînement",
 		5,
@@ -128,5 +129,9 @@ func TrainingFight(personnage *Character) bool {
 		0,
 	)
 
-	return CharacterTurn(personnage, &monstre)
+	resultat := CharacterTurn(personnage, &monstre)
+
+personnage.Health = healthAvantTraining
+
+return resultat
 }
