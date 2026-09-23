@@ -1,7 +1,7 @@
 package src
 
 import (
-	"fmt"	
+	"fmt"
 )
 
 func Start() {
@@ -17,14 +17,17 @@ func Start() {
 	case 1:
 		nom := CharacterCreation()
 		Personnage = *InitCharacter(nom, "chercheur", 100, 1, 200, 150)
+		items = append(items, "trousse de soins", "trousse de soins", "trousse de soins")
 		DisplayInfo(&Personnage)
 	case 2:
 		nom := CharacterCreation()
 		Personnage = *InitCharacter(nom, "pilote", 80, 1, 160, 250)
+		items = append(items, "trousse de soins", "trousse de soins", "trousse de soins")
 		DisplayInfo(&Personnage)
 	case 3:
 		nom := CharacterCreation()
 		Personnage = *InitCharacter(nom, "mercenaire", 150, 1, 300, 50)
+		items = append(items, "trousse de soins", "trousse de soins", "trousse de soins")
 		DisplayInfo(&Personnage)
 	default:
 		fmt.Println("Choix invalide")

@@ -7,15 +7,15 @@ import (
 )
 
 type Character struct {
-	Name      string
-	Classe    string
-	Health    int
-	Level     int
-	HealthMax int
-	Money     int
-	Stuff     Stuff
-    Experience int 
-	ExperienceMax int 
+	Name          string
+	Classe        string
+	Health        int
+	Level         int
+	HealthMax     int
+	Money         int
+	Stuff         Stuff
+	Experience    int
+	ExperienceMax int
 }
 
 type Objet struct {
@@ -33,13 +33,13 @@ var Personnage Character
 
 func InitCharacter(name string, classe string, health int, level int, healthmax int, money int) *Character {
 	return &Character{
-		Name:      name,
-		Classe:    classe,
-		Health:    health,
-		Level:     level,
-		HealthMax: healthmax,
-		Money:     money,
-		Experience: 0,
+		Name:          name,
+		Classe:        classe,
+		Health:        health,
+		Level:         level,
+		HealthMax:     healthmax,
+		Money:         money,
+		Experience:    0,
 		ExperienceMax: 100,
 	}
 }
@@ -93,6 +93,7 @@ func DisplayInfo(personnage *Character) {
 	fmt.Println("Niveau :", personnage.Level)
 	fmt.Println("PV max :", personnage.HealthMax)
 	fmt.Println("Money :", personnage.Money)
+	fmt.Printf("inventaire :  %s\n", strings.Join(items, ", "))
 }
 
 func IsDead(personnage Character) bool {
@@ -129,4 +130,19 @@ func AddExperience(personnage *Character, experienceGagnee int) {
 		personnage.Experience = 0
 		fmt.Println("Niveau maximum atteint !")
 	}
+}
+
+func ReinitialiséPersonnage(personnage *Character) {
+
+	personnage.Health = 0
+	personnage.Money = 0
+	personnage.Experience = 0
+	personnage.Level = 1
+
+	personnage.Stuff = Stuff{
+		Casque:   Objet{},
+		Torse:    Objet{},
+		Jambiere: Objet{},
+	}
+	items = []string{}
 }
