@@ -2,7 +2,13 @@ package src
 
 import (
 	"fmt"
+	"os"
 )
+
+func Quitter () {
+fmt.Println("merci d'avoir joué au jeu")
+os.Exit(0)
+}
 
 func Start() {
 	fmt.Println("bienvenue dans le jeu !")
@@ -60,8 +66,8 @@ func AfficherMenu() {
 	case 5:
 		AfficherEquipement()
 
-	// case 9:
-	// Quitter()
+	case 9:
+     Quitter()
 
 	default:
 		println("Choix invalide")
