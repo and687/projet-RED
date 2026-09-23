@@ -65,43 +65,42 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 			if ennemi.Health <= 0 {
 				ennemi.Health = 0
 			}
-			if ennemi.Health <= 0 {
-				ennemi.Health = 0
-				personnage.Money += ennemi.Recompense
-				fmt.Println("Le monstre est vaincu !")
-				fmt.Println("Tu gagnes", ennemi.Recompense, "d'or !")
-				fmt.Println("Tu as maintenant", personnage.Money, "d'or.")
-				AddExperience(personnage, ennemi.Experience)
+		}
+		if ennemi.Health <= 0 {
+			ennemi.Health = 0
+			personnage.Money += ennemi.Recompense
+			fmt.Println("Le monstre est vaincu !")
+			fmt.Println("Tu gagnes", ennemi.Recompense, "d'or !")
+			fmt.Println("Tu as maintenant", personnage.Money, "d'or.")
+			AddExperience(personnage, ennemi.Experience)
 
-				return false
-			}
+			return false
+		}
 
-			degats := GoblinPattern(*ennemi, tour)
+		degats := GoblinPattern(*ennemi, tour)
 
-			defense := personnage.Stuff.Casque.Defense
-			defense += personnage.Stuff.Jambiere.Defense
-			defense += personnage.Stuff.Jambiere.Defense
+		defense := personnage.Stuff.Casque.Defense
+		defense += personnage.Stuff.Torse.Defense
+		defense += personnage.Stuff.Jambiere.Defense
 
-			degatSubis := degats - defense
+		degatSubis := degats - defense
 
-			if degatSubis < 0 {
-				degatSubis = 0
-			}
-			personnage.Health -= degats
-			if personnage.Health < 0 {
-				personnage.Health = 0
-			}
+		if degatSubis < 0 {
+			degatSubis = 0
+		}
+		personnage.Health -= degatSubis
+		if personnage.Health < 0 {
+			personnage.Health = 0
+		}
 
-			fmt.Println(ennemi.Name, "te frappe pour", degats, "dégâts.")
-			fmt.Println("PV du joueur :", personnage.Health)
+		fmt.Println(ennemi.Name, "te frappe pour", degats, "dégâts.")
+		fmt.Println("PV du joueur :", personnage.Health)
 
-			tour++
+		tour++
 
-			if IsDead(*personnage) {
-				fmt.Println("Tu as perdu !")
-				return false
-			}
-
+		if IsDead(*personnage) {
+			fmt.Println("Tu as perdu !")
+			return false
 		}
 	}
 }
