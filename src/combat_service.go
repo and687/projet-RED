@@ -13,6 +13,7 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 
 	for {
 		fmt.Println("=== A votre tour ===")
+		fmt.Println("Un ", ennemi.Name, " apparait")
 		fmt.Println("1. Retour menu principal")
 		fmt.Println("2. Attaquer")
 		fmt.Println("3. Inventaire")
@@ -100,18 +101,17 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 
 		if IsDead(*personnage) {
 
-    if ennemi.Name == "Manequin d'entraînement" {
-        fmt.Println("Tu as perdu l'entraînement.")
-        fmt.Println("Tes statistiques et ton inventaire sont conservés.")
-        return false
-    }
+			if ennemi.Name == "Manequin d'entraînement" {
+				fmt.Println("Tu as perdu l'entraînement.")
+				fmt.Println("Tes statistiques et ton inventaire sont conservés.")
+				return false
+			}
 
-    // Vrai combat
-    fmt.Println("Tu as perdu !")
-    ReinitialiséPersonnage(personnage)
-    return false
+			fmt.Println("Tu as perdu !")
+			ReinitialiséPersonnage(personnage)
+			return false
 
-	fmt.Println("Tu as perdu le combat.")
+			fmt.Println("Tu as perdu le combat")
 			return false
 		}
 	}
@@ -131,7 +131,7 @@ func TrainingFight(personnage *Character) bool {
 
 	resultat := CharacterTurn(personnage, &monstre)
 
-personnage.Health = healthAvantTraining
+	personnage.Health = healthAvantTraining
 
-return resultat
+	return resultat
 }

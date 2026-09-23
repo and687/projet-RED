@@ -5,12 +5,23 @@ import (
 	"math/rand"
 )
 
+var étage2 = false
+var étage3 = false
+var étage4 = false
+
 func MenuCombat() {
 	fmt.Println("1. Manequin d'entraînement")
-	fmt.Println("2. Squelette")
-	fmt.Println("3. Zombie")
-	fmt.Println("4. Vampire")
-	fmt.Println("5. Dragon légendaire")
+	fmt.Println("2. Premier étage")
+
+	if étage2 {
+		fmt.Println("3. Second étage")
+	}
+	if étage3 {
+		fmt.Println("4. Troisieme étage")
+	}
+	if étage4 {
+		fmt.Println("5. Quatrieme étage")
+	}
 	fmt.Println("6. Quitter les combats")
 	fmt.Println("7. la salade de monstre")
 
@@ -23,18 +34,45 @@ func MenuCombat() {
 	case 2:
 		monster := InitGoblin("Squelette", 8, 55, 35, 55, 60)
 		LancerCombat(&Personnage, &monster)
+		if monster.Health <= 0 {
+			étage2 = true
+			fmt.Println("Le deuxième étage est débloqué !")
+		}
 	case 3:
+		if !étage2 {
+			fmt.Println("Vous n'avez pas accès à cet étage")
+			return
+		}
 		monster := InitGoblin("Zombie", 12, 95, 60, 95, 90)
 		LancerCombat(&Personnage, &monster)
+
+		if monster.Health <= 0 {
+			étage3 = true
+			fmt.Println("Le troisième étage est débloqué !")
+		}
 	case 4:
+		if !étage3 {
+			fmt.Println("Vous n'avez pas accès à cet étage")
+			return
+		}
 		monster := InitGoblin("Vampire", 18, 150, 110, 150, 120)
 		LancerCombat(&Personnage, &monster)
+
+		if monster.Health <= 0 {
+			étage4 = true
+			fmt.Println("Le quatrième étage est débloqué !")
+		}
 	case 5:
+		if !étage4 {
+			fmt.Println("Vous n'avez pas accès à cet étage")
+			return
+		}
 		monster := InitGoblin("Dragon Legendaire", 28, 350, 300, 350, 200)
 		LancerCombat(&Personnage, &monster)
 	case 6:
 		fmt.Println("Tu quittes les combats.")
 		return
+
 	default:
 		fmt.Println("Choix invalide")
 
