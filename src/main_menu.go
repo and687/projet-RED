@@ -18,6 +18,11 @@ func AfficherTitre() {
        Affrontez les monstres étage
               après étage...
 ========================================
+Depuis la nuit des temps, le surnaturel n'existait que dans les légendes… jusqu'à l'apparition des mystérieuses tours infernales. Des hordes de créatures se déversent désormais dans notre monde.
+
+De braves aventuriers se lancent à leur assaut pour percer leurs secrets, et repartir les bras chargés de richesses.
+
+Aurez-vous le courage de les rejoindre ?
 `)
 }
 
