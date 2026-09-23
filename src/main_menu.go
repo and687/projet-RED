@@ -10,7 +10,19 @@ func Quitter() {
 	os.Exit(0)
 }
 
+func AfficherTitre() {
+	fmt.Println(`
+========================================
+          🔥 LA TOUR INFERNALE 🔥
+========================================
+       Affrontez les monstres étage
+              après étage...
+========================================
+`)
+}
+
 func Start() {
+	AfficherTitre()
 	fmt.Println("bienvenue dans le jeu !")
 	fmt.Println("Choisissez la classe :")
 	fmt.Println("1. Chercheur - PV : 100/200, -Money : 150")
