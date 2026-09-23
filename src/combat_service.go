@@ -102,5 +102,30 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 			fmt.Println("Tu as perdu !")
 			return false
 		}
+
+		if IsDead(*personnage) {
+    if ennemi.Name == "Manequin d'entraînement" {
+        personnage.Health = personnage.HealthMax
+        fmt.Println("Tu as perdu l'entraînement.")
+        fmt.Println("Tes statistiques et ton inventaire sont conservés.")
+        return false
+    }
+
+    fmt.Println("Tu as perdu le combat.")
+    return false
+}
 	}
+}
+
+func TrainingFight(personnage *Character) bool {
+	monstre :=InitGoblin(
+		"manequin d'entraînement",
+        5,
+        50,
+        0,
+        50,
+        0,
+    )
+
+	return CharacterTurn(personnage, &monstre)
 }

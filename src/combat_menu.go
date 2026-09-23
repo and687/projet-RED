@@ -6,7 +6,7 @@ import (
 )
 
 func MenuCombat() {
-	fmt.Println("1. Squelette d'entraînement")
+	fmt.Println("1. Manequin d'entraînement")
 	fmt.Println("2. Squelette")
 	fmt.Println("3. Zombie")
 	fmt.Println("4. Vampire")
@@ -19,8 +19,7 @@ func MenuCombat() {
 
 	switch choix {
 	case 1:
-		monster := InitGoblin("Squelette d'entrainement", 5, 50, 10, 50, 5)
-		LancerCombat(&Personnage, &monster)
+		TrainingFight(&Personnage)
 	case 2:
 		monster := InitGoblin("Squelette", 5, 50, 10, 50, 100)
 		LancerCombat(&Personnage, &monster)
