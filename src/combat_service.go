@@ -77,6 +77,16 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 			}
 
 			degats := GoblinPattern(*ennemi, tour)
+
+			defense := personnage.Stuff.Casque.Defense
+			defense += personnage.Stuff.Jambiere.Defense
+			defense += personnage.Stuff.Jambiere.Defense
+
+			degatSubis := degats - defense
+
+			if degatSubis < 0 {
+				degatSubis = 0
+			}
 			personnage.Health -= degats
 			if personnage.Health < 0 {
 				personnage.Health = 0

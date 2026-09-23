@@ -86,6 +86,7 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 		}
 
 		fmt.Println("Dégâts infligés : 20")
+		fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
 		SupprimerItems(item)
 
 	case "Fusil d'assault":
@@ -96,6 +97,7 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 		}
 
 		fmt.Println("Dégâts infligés : 30")
+		fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
 		SupprimerItems(item)
 
 	case "Dragon Slayer":
@@ -106,6 +108,7 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 		}
 
 		fmt.Println("Dégâts infligés : 100")
+		fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
 		SupprimerItems(item)
 
 	default:
