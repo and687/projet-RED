@@ -25,9 +25,9 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 			fmt.Println("Retour au menu principal")
 			return true
 		case 2:
-			degats := 5
+			degats := 15
 			ennemi.Health -= degats
-			fmt.Println("Attaque utilisée : Attaque basique")
+			fmt.Println("Attaque utilisée : Attaque coup de poing")
 			fmt.Println("Dégâts infligés :", degats)
 			fmt.Println("PV restants de l'adversaire :", ennemi.Health)
 

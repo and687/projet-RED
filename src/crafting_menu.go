@@ -80,7 +80,7 @@ func Tailleur() {
 				if item == "Moustache" {
 					Moustache = true
 				}
-				if item == "Masquette baseball" {
+				if item == "Casquette baseball" {
 					Casquette = true
 				}
 			}

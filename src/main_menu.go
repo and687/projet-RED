@@ -5,9 +5,9 @@ import (
 	"os"
 )
 
-func Quitter () {
-fmt.Println("merci d'avoir joué au jeu")
-os.Exit(0)
+func Quitter() {
+	fmt.Println("merci d'avoir joué au jeu")
+	os.Exit(0)
 }
 
 func Start() {
@@ -23,17 +23,17 @@ func Start() {
 	case 1:
 		nom := CharacterCreation()
 		Personnage = *InitCharacter(nom, "chercheur", 100, 1, 200, 150)
-		items = append(items, "trousse de soins", "trousse de soins", "trousse de soins")
+		items = append(items, "Trousse de soins", "Trousse de soins", "Trousse de soins")
 		DisplayInfo(&Personnage)
 	case 2:
 		nom := CharacterCreation()
 		Personnage = *InitCharacter(nom, "pilote", 80, 1, 160, 250)
-		items = append(items, "trousse de soins", "trousse de soins", "trousse de soins")
+		items = append(items, "Trousse de soins", "Trousse de soins", "Trousse de soins")
 		DisplayInfo(&Personnage)
 	case 3:
 		nom := CharacterCreation()
 		Personnage = *InitCharacter(nom, "mercenaire", 150, 1, 300, 50)
-		items = append(items, "trousse de soins", "trousse de soins", "trousse de soins")
+		items = append(items, "Trousse de soins", "Trousse de soins", "Trousse de soins")
 		DisplayInfo(&Personnage)
 	default:
 		fmt.Println("Choix invalide")
@@ -67,7 +67,7 @@ func AfficherMenu() {
 		AfficherEquipement()
 
 	case 9:
-     Quitter()
+		Quitter()
 
 	default:
 		println("Choix invalide")

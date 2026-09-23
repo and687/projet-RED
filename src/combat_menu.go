@@ -2,7 +2,7 @@ package src
 
 import (
 	"fmt"
-    "math/rand"
+	"math/rand"
 )
 
 func MenuCombat() {
@@ -12,7 +12,7 @@ func MenuCombat() {
 	fmt.Println("4. Vampire")
 	fmt.Println("5. Dragon légendaire")
 	fmt.Println("6. Quitter les combats")
-    fmt.Println("7. la salade de monstre")
+	fmt.Println("7. la salade de monstre")
 
 	var choix int
 	fmt.Scan(&choix)
@@ -21,16 +21,16 @@ func MenuCombat() {
 	case 1:
 		TrainingFight(&Personnage)
 	case 2:
-		monster := InitGoblin("Squelette", 5, 50, 10, 50, 100)
+		monster := InitGoblin("Squelette", 8, 55, 35, 55, 60)
 		LancerCombat(&Personnage, &monster)
 	case 3:
-		monster := InitGoblin("Zombie", 10, 100, 20, 100, 20)
+		monster := InitGoblin("Zombie", 12, 95, 60, 95, 90)
 		LancerCombat(&Personnage, &monster)
 	case 4:
-		monster := InitGoblin("Vampire", 30, 200, 50, 200, 30)
+		monster := InitGoblin("Vampire", 18, 150, 110, 150, 120)
 		LancerCombat(&Personnage, &monster)
 	case 5:
-		monster := InitGoblin("Dragon Legendaire", 100, 500, 2000, 500, 50)
+		monster := InitGoblin("Dragon Legendaire", 28, 350, 300, 350, 200)
 		LancerCombat(&Personnage, &monster)
 	case 6:
 		fmt.Println("Tu quittes les combats.")
@@ -38,9 +38,9 @@ func MenuCombat() {
 	default:
 		fmt.Println("Choix invalide")
 
-    case 7: 
-    fmt.Println("=== bienvenue dans la salade de monstres ===")
-    SaladeDeMonstres()
+	case 7:
+		fmt.Println("=== bienvenue dans la salade de monstres ===")
+		SaladeDeMonstres()
 	}
 }
 
@@ -50,11 +50,11 @@ func SaladeDeMonstres() {
 		InitGoblin("Zombie", 10, 100, 20, 100, 20),
 		InitGoblin("Vampire", 30, 200, 50, 200, 30),
 		InitGoblin("Dragon légendaire", 100, 500, 2000, 500, 50),
-    }
+	}
 
 	for !IsDead(Personnage) {
-	indice := rand.Intn(len(monstres))
-	monstre := monstres[indice]
+		indice := rand.Intn(len(monstres))
+		monstre := monstres[indice]
 
 		fmt.Println("Nouveau monstre :", monstre.Name)
 		quitter := LancerCombat(&Personnage, &monstre)

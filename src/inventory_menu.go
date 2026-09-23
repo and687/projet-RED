@@ -46,7 +46,7 @@ func AfficherInventaire() {
 func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 	switch item {
 
-	case "Trousse de soin":
+	case "Trousse de soins":
 		if personnage.Health >= personnage.HealthMax {
 			fmt.Println("Vous avez déjà le maximum de points de vie.")
 			return
@@ -58,7 +58,7 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 			personnage.Health = personnage.HealthMax
 		}
 
-		fmt.Println("Vous utilisez une trousse de soin. +20 PV")
+		fmt.Println("Vous utilisez une trousse de soins. +20 PV")
 		SupprimerItems(item)
 
 	case "Fléchette empoisonée":
@@ -125,8 +125,10 @@ func SupprimerItems(item string) {
 
 func AfficherEquipement() {
 
-	fmt.Println(Personnage.Stuff.Casque, "PV")
-	fmt.Println(Personnage.Stuff.Torse, "PV")
-	fmt.Println(Personnage.Stuff.Jambiere, "PV")
+	fmt.Println("Casque :", Personnage.Stuff.Casque.Nom, "- Défense :", Personnage.Stuff.Casque.Defense)
+
+	fmt.Println("Torse :", Personnage.Stuff.Torse.Nom, "- Défense :", Personnage.Stuff.Torse.Defense)
+
+	fmt.Println("Jambières :", Personnage.Stuff.Jambiere.Nom, "- Défense :", Personnage.Stuff.Jambiere.Defense)
 
 }
