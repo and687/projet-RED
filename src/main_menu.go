@@ -1,8 +1,12 @@
 package src
 
 import (
+	"bufio"
 	"fmt"
 	"os"
+	"os/exec"
+	"runtime"
+	"strings"
 )
 
 func Quitter() {
@@ -40,6 +44,7 @@ func Start() {
 
 	var choix int
 	fmt.Scan(&choix)
+	clearTerminal()
 	switch choix {
 	case 1:
 		nom := CharacterCreation()
@@ -75,6 +80,8 @@ func AfficherMenu() {
 	fmt.Printf("Vous avez %d d'or !\n", Personnage.Money)
 	fmt.Printf("Vous avez %d / %d Pv\n", Personnage.Health, Personnage.HealthMax)
 	fmt.Scan(&choix)
+	clearTerminal()
+	
 
 	switch choix {
 
@@ -100,4 +107,31 @@ func AfficherMenu() {
 		println("Choix invalide")
 		AfficherMenu()
 	}
+}
+
+var reader = bufio.NewReader(os.Stdin)
+
+func clearTerminal() {
+	var cmd *exec.Cmd
+
+	switch runtime.GOOS {
+	case "windows":
+		cmd = exec.Command("cmd", "/c", "cls")
+	default:
+		cmd = exec.Command("clear")
+	}
+
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+}
+
+func Input(message string) string {
+	fmt.Print(message)
+
+	input, _ := reader.ReadString('\n')
+	input = strings.TrimSpace(input)
+
+	clearTerminal()
+
+	return input
 }

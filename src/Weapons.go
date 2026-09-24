@@ -22,6 +22,7 @@ func weapons() {
 		fmt.Println("Tapez un numéro, ou 0 pour retourner au menu principal")
 
 		fmt.Scan(&choix)
+		clearTerminal()
 
 		if choix == 0 {
 			AfficherMenu()

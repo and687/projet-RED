@@ -15,6 +15,7 @@ func Tailleur() {
 	fmt.Println("3. Micro short (comme celui d'une grande exploratrice)")
 	fmt.Println("0. Retour au menu")
 	fmt.Scan(&choix)
+	clearTerminal()
 
 	switch {
 
@@ -66,6 +67,7 @@ func Tailleur() {
 		fmt.Println("- 1 fées")
 		fmt.Println("- 250 gold")
 		fmt.Scan(&approuved)
+		clearTerminal()
 
 		if approuved == "non" {
 			fmt.Println("Très bien, la tunique verte ne sera pas fabriqué.")

@@ -30,6 +30,7 @@ func MenuCombat() {
 
 	var choix int
 	fmt.Scan(&choix)
+	clearTerminal()
 
 	switch choix {
 	case 1:
