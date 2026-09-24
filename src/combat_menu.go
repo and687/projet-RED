@@ -35,6 +35,7 @@ func MenuCombat() {
 	case 1:
 		TrainingFight(&Personnage)
 	case 2:
+		afficherSquelette()
 		monster := InitGoblin("Squelette", 8, 55, 35, 55, 60)
 		LancerCombat(&Personnage, &monster)
 		if monster.Health <= 0 {
@@ -46,6 +47,7 @@ func MenuCombat() {
 			fmt.Println("Choix invalide")
 			return
 		}
+		afficherZombie()
 		monster := InitGoblin("Zombie", 25, 95, 60, 95, 90)
 		LancerCombat(&Personnage, &monster)
 
@@ -58,6 +60,7 @@ func MenuCombat() {
 			fmt.Println("Choix invalide")
 			return
 		}
+		afficherVampire()
 		monster := InitGoblin("Vampire", 60, 150, 110, 150, 120)
 		LancerCombat(&Personnage, &monster)
 
@@ -70,6 +73,7 @@ func MenuCombat() {
 			fmt.Println("Choix invalide")
 			return
 		}
+		afficherDragon()
 		monster := InitGoblin("Dragon Legendaire", 90, 350, 300, 350, 200)
 		LancerCombat(&Personnage, &monster)
 		if monster.Health <= 0 {

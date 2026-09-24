@@ -16,7 +16,7 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 		fmt.Println("Un ", ennemi.Name, " apparait")
 		fmt.Println("1. Coup de poings")
 		fmt.Println("2. Armes")
-		fmt.Println("2. Inventaire")
+		fmt.Println("3. Inventaire")
 		fmt.Println("0. Retour menu principal")
 
 		var choix int
