@@ -43,10 +43,10 @@ func MenuCombat() {
 		}
 	case 3:
 		if !étage2 {
-			fmt.Println("Vous n'avez pas accès à cet étage")
+			fmt.Println("Choix invalide")
 			return
 		}
-		monster := InitGoblin("Zombie", 12, 95, 60, 95, 90)
+		monster := InitGoblin("Zombie", 25, 95, 60, 95, 90)
 		LancerCombat(&Personnage, &monster)
 
 		if monster.Health <= 0 {
@@ -55,10 +55,10 @@ func MenuCombat() {
 		}
 	case 4:
 		if !étage3 {
-			fmt.Println("Vous n'avez pas accès à cet étage")
+			fmt.Println("Choix invalide")
 			return
 		}
-		monster := InitGoblin("Vampire", 18, 150, 110, 150, 120)
+		monster := InitGoblin("Vampire", 60, 150, 110, 150, 120)
 		LancerCombat(&Personnage, &monster)
 
 		if monster.Health <= 0 {
@@ -67,13 +67,18 @@ func MenuCombat() {
 		}
 	case 5:
 		if !étage4 {
-			fmt.Println("Vous n'avez pas accès à cet étage")
+			fmt.Println("Choix invalide")
 			return
 		}
-		monster := InitGoblin("Dragon Legendaire", 28, 350, 300, 350, 200)
+		monster := InitGoblin("Dragon Legendaire", 90, 350, 300, 350, 200)
 		LancerCombat(&Personnage, &monster)
 		if monster.Health <= 0 {
 			étage5 = true
+			fmt.Println("╔════════════════════════════════════════╗")
+			fmt.Println("║Le trésor se trouve dans une autre tour ║")
+			fmt.Println("║            ★ BRAVO ! ★                 ║")
+			fmt.Println("║  Vous avez fini le mode Histoire !     ║")
+			fmt.Println("╚════════════════════════════════════════╝")
 			fmt.Println("La salade de monstre est débloqué !")
 		}
 
@@ -86,7 +91,7 @@ func MenuCombat() {
 
 	case 7:
 		if !étage5 {
-			fmt.Println("Vous n'avez pas accès à cet étage")
+			fmt.Println("Choix invalide")
 			return
 		}
 		fmt.Println("=== bienvenue dans la salade de monstres ===")
@@ -97,9 +102,9 @@ func MenuCombat() {
 func SaladeDeMonstres() {
 	monstres := []Monster{
 		InitGoblin("Squelette", 8, 55, 35, 55, 60),
-		InitGoblin("Zombie", 12, 95, 60, 95, 90),
-		InitGoblin("Vampire", 18, 150, 110, 150, 120),
-		InitGoblin("Dragon légendaire", 8, 350, 300, 350, 200),
+		InitGoblin("Zombie", 25, 95, 60, 95, 90),
+		InitGoblin("Vampire", 60, 150, 110, 150, 120),
+		InitGoblin("Dragon légendaire", 90, 350, 300, 350, 200),
 	}
 
 	monstresBattus := 0

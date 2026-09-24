@@ -14,25 +14,25 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 	for {
 		fmt.Println("=== A votre tour ===")
 		fmt.Println("Un ", ennemi.Name, " apparait")
-		fmt.Println("1. Retour menu principal")
-		fmt.Println("2. Attaquer")
-		fmt.Println("3. Inventaire")
+		fmt.Println("1. Coup de poings")
+		fmt.Println("2. Inventaire")
+		fmt.Println("0. Retour menu principal")
 
 		var choix int
 		fmt.Scan(&choix)
 
 		switch choix {
-		case 1:
+		case 0:
 			fmt.Println("Retour au menu principal")
 			return true
-		case 2:
+		case 1:
 			degats := 15
 			ennemi.Health -= degats
 			fmt.Println("Attaque utilisée : Attaque coup de poing")
 			fmt.Println("Dégâts infligés :", degats)
 			fmt.Println("PV restants de l'adversaire :", ennemi.Health)
 
-		case 3:
+		case 2:
 
 			if len(items) == 0 {
 				fmt.Println("Votre inventaire est vide.")
@@ -94,7 +94,9 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 			personnage.Health = 0
 		}
 
-		fmt.Println(ennemi.Name, "te frappe pour", degats, "dégâts.")
+		fmt.Println(ennemi.Name, "te frappe pour", degats, "dégâts.", "armure est de", personnage.Stuff.Casque.Defense + 
+		personnage.Stuff.Torse.Defense + personnage.Stuff.Jambiere.Defense)
+		fmt.Println("le monstre vous a infligé :", degatSubis )
 		fmt.Println("PV du joueur :", personnage.Health)
 
 		tour++

@@ -108,6 +108,16 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 		fmt.Println("Dégâts infligés : 100")
 		fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
 
+	case "Épée à energie":
+		ennemi.Health -= 200
+
+		if ennemi.Health < 0 {
+			ennemi.Health = 0
+		}
+
+		fmt.Println("Dégâts infligés : 200")
+		fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
+
 	default:
 		fmt.Println("Cet objet n'a pas d'effet particulier.")
 	}

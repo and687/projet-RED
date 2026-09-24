@@ -11,8 +11,9 @@ func Tailleur() {
 
 	fmt.Println("bonjour, que souhaitez que je vous prépare :")
 	fmt.Println("1. Chapeau d'aventurier (protege des coups de fouet)")
-	fmt.Println("2. Chemise à fleur ( parfait pour conduire des ferrari)")
+	fmt.Println("2. Tunique verte (briser les pots ne vous fait plus peur)")
 	fmt.Println("3. Micro short (comme celui d'une grande exploratrice)")
+	fmt.Println("0. Retour au menu")
 	fmt.Scan(&choix)
 
 	switch {
@@ -60,42 +61,42 @@ func Tailleur() {
 		}
 	}
 	if choix == 2 {
-		fmt.Println("Voulez-vous la chemise à fleur ? (oui/non)")
-		fmt.Println("- 1 une moustache")
-		fmt.Println("- 1 casquette de baseball")
+		fmt.Println("Voulez-vous la tunique verte ? (oui/non)")
+		fmt.Println("- 1 rubis")
+		fmt.Println("- 1 fées")
 		fmt.Println("- 250 gold")
 		fmt.Scan(&approuved)
 
 		if approuved == "non" {
-			fmt.Println("Très bien, la chemise à fleur ne sera pas fabriqué.")
+			fmt.Println("Très bien, la tunique verte ne sera pas fabriqué.")
 			return
 		}
 
 		if approuved == "oui" {
 
-			Moustache := false
-			Casquette := false
+			rubis := false
+			fées := false
 
 			for _, item := range items {
-				if item == "Moustache" {
-					Moustache = true
+				if item == "rubis" {
+					rubis = true
 				}
-				if item == "Casquette baseball" {
-					Casquette = true
+				if item == "fées" {
+					fées = true
 				}
 			}
 
-			if len(items) < capacité && Moustache && Casquette && Personnage.Money >= 250 {
+			if len(items) < capacité && rubis && fées && Personnage.Money >= 250 {
 				Personnage.Money -= 250
 
 				Personnage.Stuff.Torse = Objet{
-					Nom:     "Chemise à fleur",
-					Defense: 50,
+					Nom:     "tunique verte",
+					Defense: 30,
 				}
-				SupprimerItems("Moustache")
-				SupprimerItems("Casquette")
+				SupprimerItems("rubis")
+				SupprimerItems("fées")
 
-				fmt.Println("Bravo ! Vous avez fabriqué la chemise à fleur !")
+				fmt.Println("Bravo ! Vous avez fabriqué la tunique verte !")
 			} else {
 				fmt.Println("Impossible de fabriquer l'objet (manque d'objets, d'or, ou inventaire plein).")
 			}
@@ -132,12 +133,12 @@ func Tailleur() {
 
 				Personnage.Stuff.Jambiere = Objet{
 					Nom:     "Micro short",
-					Defense: 30,
+					Defense: 20,
 				}
 				SupprimerItems("Dent de T-Rex")
 				SupprimerItems("Tesseract")
 
-				fmt.Println("Bravo ! Vous avez fabriqué la chemise à fleur !")
+				fmt.Println("Bravo ! Vous avez fabriqué le micro short !")
 			} else {
 				fmt.Println("Impossible de fabriquer l'objet (manque d'objets, d'or, ou inventaire plein).")
 			}

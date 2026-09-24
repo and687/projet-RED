@@ -12,6 +12,12 @@ var DragonSlayer bool = true
 var Gratuit bool = true
 var stockage bool = true
 var capacité = 10
+var peaudeserpent bool = true
+var idoledor bool = true
+var rubiss bool = true
+var féess bool = true
+var dentdetrex bool = true
+var tesseracte bool = true
 
 func Acheter() {
 
@@ -34,12 +40,24 @@ func Acheter() {
 		if Gratuit {
 			fmt.Println("7 : Trousse de soin (Gratuit)")
 		}
-		fmt.Println("8 : Peau de serpent (50g)")
-		fmt.Println("9 : Idole d'or (70g)")
-		fmt.Println("10 : Moustache (60g)")
-		fmt.Println("11 : Casquette baseball (60g)")
-		fmt.Println("12 : Dent de T-Rex (100g)")
-		fmt.Println("13 : Tesseract (120g)")
+		if peaudeserpent {
+			fmt.Println("8 : Peau de serpent (50g)")
+		}
+		if idoledor {
+			fmt.Println("9 : Idole d'or (70g)")
+		}
+		if rubiss {
+			fmt.Println("10 : rubis (60g)")
+		}
+		if féess {
+			fmt.Println("11 : fées (60g)")
+		}
+		if dentdetrex {
+			fmt.Println("12 : Dent de T-Rex (100g)")
+		}
+		if tesseracte {
+			fmt.Println("13 : Tesseract (120g)")
+		}
 		fmt.Println("0 : Quitter le magasin")
 
 		var choix int
@@ -139,6 +157,7 @@ func Acheter() {
 					Personnage.Money -= 50
 					items = append(items, "Peau de serpent")
 					fmt.Println("Peau de serpent ajoutée à votre inventaire !")
+					peaudeserpent = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !", Personnage.Money)
 				}
@@ -152,6 +171,7 @@ func Acheter() {
 					Personnage.Money -= 70
 					items = append(items, "Idole d'or")
 					fmt.Println("Idole d'or ajoutée à votre inventaire !")
+					idoledor = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
 				}
@@ -163,8 +183,9 @@ func Acheter() {
 			if len(items) < capacité {
 				if Personnage.Money >= 60 {
 					Personnage.Money -= 60
-					items = append(items, "Moustache")
+					items = append(items, "rubis")
 					fmt.Println("Moustache ajoutée à votre inventaire !")
+					rubiss = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
 				}
@@ -175,8 +196,9 @@ func Acheter() {
 			if len(items) < capacité {
 				if Personnage.Money >= 60 {
 					Personnage.Money -= 60
-					items = append(items, "Casquette baseball")
-					fmt.Println("Casquette baseball ajoutée à votre inventaire !")
+					items = append(items, "fées")
+					fmt.Println("fées ajoutée à votre inventaire !")
+					féess = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
 				}
@@ -188,10 +210,12 @@ func Acheter() {
 			if len(items) < capacité {
 				if Personnage.Money >= 100 {
 					Personnage.Money -= 100
-					items = append(items, "dent de T-Rex")
+					items = append(items, "Dent de T-Rex")
 					fmt.Println("dent de T-Rex Ajoutée à votre inventaire !")
+					dentdetrex = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
+
 				}
 			} else {
 				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
@@ -203,6 +227,7 @@ func Acheter() {
 					Personnage.Money -= 120
 					items = append(items, "Tesseract")
 					fmt.Println("Tesseract Ajoutée à votre inventaire !")
+					tesseracte = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
 				}
