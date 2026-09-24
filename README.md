@@ -1,7 +1,7 @@
 # projet-RED
 projet RED ymmersion andrea et christophe
 
-# 🔥 La Tour Infernale
+# La Tour Infernale
 
 **La Tour Infernale** est un jeu de rôle (RPG) en ligne de commande
 développé en Go. Le joueur crée un aventurier, affronte des monstres
