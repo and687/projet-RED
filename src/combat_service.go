@@ -15,6 +15,7 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 		fmt.Println("=== A votre tour ===")
 		fmt.Println("Un ", ennemi.Name, " apparait")
 		fmt.Println("1. Coup de poings")
+		fmt.Println("2. Armes")
 		fmt.Println("2. Inventaire")
 		fmt.Println("0. Retour menu principal")
 
@@ -33,6 +34,41 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 			fmt.Println("PV restants de l'adversaire :", ennemi.Health)
 
 		case 2:
+
+			if len(weapon) == 0 {
+				fmt.Println("Vous n'avez pas d'armes.")
+				continue
+			}
+
+			fmt.Println("=== Armement ===")
+
+			for i, w := range weapon {
+				fmt.Printf("%d - %s\n", i+1, w)
+			}
+
+			fmt.Println("Tapez 0 pour retourner au combat.")
+
+			var choixweapon int
+			fmt.Scan(&choixweapon)
+
+			if choixweapon == 0 {
+				continue
+			}
+
+			if choixweapon < 1 || choixweapon > len(weapon) {
+				fmt.Println("Choix invalide.")
+				continue
+			}
+
+			weapon := weapon[choixweapon-1]
+
+			UtilisationWeapon(personnage, ennemi, weapon)
+
+			if ennemi.Health <= 0 {
+				ennemi.Health = 0
+			}
+
+		case 3:
 
 			if len(items) == 0 {
 				fmt.Println("Votre inventaire est vide.")
@@ -94,9 +130,9 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 			personnage.Health = 0
 		}
 
-		fmt.Println(ennemi.Name, "te frappe pour", degats, "dégâts.", "armure est de", personnage.Stuff.Casque.Defense + 
-		personnage.Stuff.Torse.Defense + personnage.Stuff.Jambiere.Defense)
-		fmt.Println("le monstre vous a infligé :", degatSubis )
+		fmt.Println(ennemi.Name, "te frappe pour", degats, "dégâts.", "armure est de", personnage.Stuff.Casque.Defense+
+			personnage.Stuff.Torse.Defense+personnage.Stuff.Jambiere.Defense)
+		fmt.Println("le monstre vous a infligé :", degatSubis)
 		fmt.Println("PV du joueur :", personnage.Health)
 
 		tour++

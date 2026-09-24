@@ -78,45 +78,6 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 
 		SupprimerItems(item)
 
-	case "Double pistolets":
-		ennemi.Health -= 20
-
-		if ennemi.Health < 0 {
-			ennemi.Health = 0
-		}
-
-		fmt.Println("Dégâts infligés : 20")
-		fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
-
-	case "Fusil d'assault":
-		ennemi.Health -= 30
-
-		if ennemi.Health < 0 {
-			ennemi.Health = 0
-		}
-
-		fmt.Println("Dégâts infligés : 30")
-		fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
-
-	case "Dragon Slayer":
-		ennemi.Health -= 100
-
-		if ennemi.Health < 0 {
-			ennemi.Health = 0
-		}
-
-		fmt.Println("Dégâts infligés : 100")
-		fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
-
-	case "Épée à energie":
-		ennemi.Health -= 200
-
-		if ennemi.Health < 0 {
-			ennemi.Health = 0
-		}
-
-		fmt.Println("Dégâts infligés : 200")
-		fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
 
 	default:
 		fmt.Println("Cet objet n'a pas d'effet particulier.")

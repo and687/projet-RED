@@ -59,6 +59,7 @@ func Start() {
 		nom := "Masterchief"
 		Personnage = *InitCharacter(nom, "Spartan", 1000, 1, 1000, 5000)
 		items = append(items, "Trousse de soins", "Trousse de soins", "Trousse de soins", "Épée à energie")
+		weapon = append(weapon, "Trousse de soins", "Trousse de soins", "Trousse de soins", "Épée à energie")
 		DisplayInfo(&Personnage)
 	default:
 		fmt.Println("Choix invalide")

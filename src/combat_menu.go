@@ -8,7 +8,7 @@ import (
 var étage2 = false
 var étage3 = false
 var étage4 = false
-var étage5 = true
+var étage5 = false
 
 func MenuCombat() {
 	fmt.Println("1. Manequin d'entraînement")
