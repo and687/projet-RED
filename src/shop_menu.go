@@ -22,23 +22,24 @@ var tesseracte bool = true
 func Acheter() {
 
 	for {
-		fmt.Println("Bienvenu dans mon magasin. Que voulez-vous acheter ?")
-		fmt.Println("1 : Trousse de soins (50g)")
-		fmt.Println("2 : Fléchette Empoisonée (60g)")
+		PrintCouleur(Jaune+Gras, "===== BIENVENUE au 7 Eleven =====")
+		fmt.Println("Que voulez-vous acheter ?")
+		fmt.Println(Vert + "1 : Trousse de soins (50g)" + Reset)
+		fmt.Println(Violet + "2 : Fléchette empoisonnée (60g)" + Reset)
 		if DoublePistolets {
-			fmt.Println("3 : Double pistolets (180g)")
+			fmt.Println(Jaune + "3 : Double pistolets (180g)" + Reset)
 		}
 		if FusilAssault {
-			fmt.Println("4 : Fusil d'assault (350g)")
+			fmt.Println(Orange + "4 : Fusil d'assault (350g)" + Reset)
 		}
 		if DragonSlayer {
-			fmt.Println("5 : Épée: The dragon slayer (800g)")
+			fmt.Println(Rouge + "5 : Épée: The dragon slayer (800g)" + Reset)
 		}
 		if stockage {
-			fmt.Println("6 : Agrandir sont inventaire de +5 (250)")
+			fmt.Println(Bleu + "6 : Agrandir sont inventaire de +5 (250)" + Reset)
 		}
 		if Gratuit {
-			fmt.Println("7 : Trousse de soin (Gratuit)")
+			fmt.Println(Vert + "7 : Trousse de soin (Gratuit)" + Reset)
 		}
 		if peaudeserpent {
 			fmt.Println("8 : Peau de serpent (50g)")
@@ -58,7 +59,7 @@ func Acheter() {
 		if tesseracte {
 			fmt.Println("13 : Tesseract (120g)")
 		}
-		fmt.Println("0 : Quitter le magasin")
+		fmt.Println(Cyan + "0 : Quitter le magasin" + Reset)
 
 		var choix int
 		fmt.Scan(&choix)
@@ -70,7 +71,7 @@ func Acheter() {
 				if Personnage.Money >= 50 {
 					Personnage.Money -= 50
 					items = append(items, "Trousse de soins")
-					fmt.Println("Trousse de soins ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "Trousse de soins ajoutée à votre inventaire !")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !", Personnage.Money)
 				}
@@ -83,7 +84,7 @@ func Acheter() {
 				if Personnage.Money >= 60 {
 					Personnage.Money -= 60
 					items = append(items, "Fléchette empoisonée")
-					fmt.Println("Fléchette empoisonée ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "Fléchette empoisonée ajoutée à votre inventaire !")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
 				}
@@ -97,7 +98,7 @@ func Acheter() {
 					Personnage.Money -= 180
 					items = append(items, "Double pistolets ")
 					weapon = append(weapon, "Double pistolets")
-					fmt.Println("Double pistolets ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "Double pistolets ajoutée à votre inventaire !")
 					DoublePistolets = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
@@ -111,7 +112,7 @@ func Acheter() {
 					Personnage.Money -= 350
 					items = append(items, "Fusil d'assault ")
 					weapon = append(weapon, "Fusil d'assault")
-					fmt.Println("Fusil d'assault ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "Fusil d'assault ajoutée à votre inventaire !")
 					FusilAssault = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
@@ -126,7 +127,7 @@ func Acheter() {
 					Personnage.Money -= 800
 					items = append(items, "Dragon Slayer ")
 					weapon = append(weapon, "Dragon Slayer")
-					fmt.Println("Épée: The Dragon Slayer !!!!! Ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "Épée: The Dragon Slayer !!!!! Ajoutée à votre inventaire !")
 					DragonSlayer = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
@@ -143,13 +144,13 @@ func Acheter() {
 				} else {
 					stockage = false
 				}
-				fmt.Println("Vous avez augmenté votre ivnentaire de 10 emplacements")
+				PrintCouleur(Vert, "Vous avez augmenté votre ivnentaire de 10 emplacements")
 			}
 
 		case choix == 7:
 			if len(items) < capacité {
-				items = append(items, "Trousse de soin")
-				fmt.Println("Trousse de soin ajoutée à votre inventaire !")
+				items = append(items, "Trousse de soins")
+				PrintCouleur(Vert, "Trousse de soin ajoutée à votre inventaire !")
 				Gratuit = false
 			} else {
 				fmt.Println("Vous n'avez pas assez de place dans votre inventaire")
@@ -159,7 +160,7 @@ func Acheter() {
 				if Personnage.Money >= 50 {
 					Personnage.Money -= 50
 					items = append(items, "Peau de serpent")
-					fmt.Println("Peau de serpent ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "Peau de serpent ajoutée à votre inventaire !")
 					peaudeserpent = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !", Personnage.Money)
@@ -173,7 +174,7 @@ func Acheter() {
 				if Personnage.Money >= 70 {
 					Personnage.Money -= 70
 					items = append(items, "Idole d'or")
-					fmt.Println("Idole d'or ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "Idole d'or ajoutée à votre inventaire !")
 					idoledor = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
@@ -187,7 +188,7 @@ func Acheter() {
 				if Personnage.Money >= 60 {
 					Personnage.Money -= 60
 					items = append(items, "rubis")
-					fmt.Println("Moustache ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "Moustache ajoutée à votre inventaire !")
 					rubiss = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
@@ -200,7 +201,7 @@ func Acheter() {
 				if Personnage.Money >= 60 {
 					Personnage.Money -= 60
 					items = append(items, "fées")
-					fmt.Println("fées ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "fées ajoutée à votre inventaire !")
 					féess = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
@@ -214,7 +215,7 @@ func Acheter() {
 				if Personnage.Money >= 100 {
 					Personnage.Money -= 100
 					items = append(items, "Dent de T-Rex")
-					fmt.Println("dent de T-Rex Ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "dent de T-Rex Ajoutée à votre inventaire !")
 					dentdetrex = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
@@ -229,7 +230,7 @@ func Acheter() {
 				if Personnage.Money >= 120 {
 					Personnage.Money -= 120
 					items = append(items, "Tesseract")
-					fmt.Println("Tesseract Ajoutée à votre inventaire !")
+					PrintCouleur(Vert, "Tesseract Ajoutée à votre inventaire !")
 					tesseracte = false
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")

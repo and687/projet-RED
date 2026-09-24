@@ -11,24 +11,25 @@ func Quitter() {
 }
 
 func AfficherTitre() {
-	fmt.Println(`
+	fmt.Println(Rouge + Gras + `
 ========================================
           🔥 LA TOUR INFERNALE 🔥
 ========================================
        Affrontez les monstres étage
               après étage...
 ========================================
-Depuis la nuit des temps, le surnaturel n'existait que dans les légendes… jusqu'à l'apparition des mystérieuses tours infernales. Des hordes de créatures se déversent désormais dans notre monde.
+` + Reset)
 
-De braves aventuriers se lancent à leur assaut pour percer leurs secrets, et repartir les bras chargés de richesses.
+	PrintCouleur(Jaune, `Depuis la nuit des temps, le surnaturel n'existait que dans les légendes… jusqu'à l'apparition des mystérieuses tours infernales. Des hordes de créatures se déversent désormais dans notre monde.
 
-Aurez-vous le courage de les rejoindre ?
-`)
+De braves aventuriers se lancent à leur assaut pour percer leurs secrets, et repartir les bras chargés de richesses.`)
+
+	PrintCouleur(Blanc, "Aurez-vous le courage de les rejoindre ?")
 }
 
 func Start() {
 	AfficherTitre()
-	fmt.Println("bienvenue dans le jeu !")
+	PrintCouleur(Cyan+Gras, "Bienvenue dans le jeu !")
 	fmt.Println("Choisissez la classe :")
 	fmt.Println("1. Chercheur - PV : 100/200, -Money : 150")
 	fmt.Println("2. Pilote -PV : 80/160, -Money : 250")

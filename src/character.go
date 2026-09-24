@@ -56,7 +56,7 @@ func AskName() string {
 		var name string
 		nameValide := true
 
-		fmt.Print("comment s'appelle votre personnage: ")
+		fmt.Print(Cyan + "Comment s'appelle votre personnage : " + Reset)
 		fmt.Scan(&name)
 
 		for _, caractere := range name {
@@ -70,7 +70,7 @@ func AskName() string {
 			return name
 		}
 
-		fmt.Println("nom invalide : les chiffres sont interdit")
+		PrintCouleur(Rouge, "Nom invalide : les chiffres sont interdits.")
 	}
 }
 
@@ -87,15 +87,18 @@ func FormatName(name string) string {
 }
 
 func DisplayInfo(personnage *Character) {
-	fmt.Println("Nom :", personnage.Name)
-	fmt.Println("Classe :", personnage.Classe)
-	fmt.Println("PV :", personnage.Health)
-	fmt.Println("Niveau :", personnage.Level)
-	fmt.Println("PV max :", personnage.HealthMax)
-	fmt.Println("Money :", personnage.Money)
-	fmt.Printf("inventaire :  %s\n", strings.Join(items, ", "))
-}
+	fmt.Println(Violet + Gras + "\n===== INFORMATIONS DU PERSONNAGE =====" + Reset)
 
+	fmt.Println(Cyan+"Nom :"+Reset, personnage.Name)
+	fmt.Println(Cyan+"Classe :"+Reset, personnage.Classe)
+	fmt.Println(Vert+"PV :"+Reset, personnage.Health)
+	fmt.Println(Jaune+"Niveau :"+Reset, personnage.Level)
+	fmt.Println(Vert+"PV max :"+Reset, personnage.HealthMax)
+	fmt.Println(Jaune+"Or :"+Reset, personnage.Money)
+	fmt.Println(Bleu+"Inventaire :"+Reset, strings.Join(items, ", "))
+
+	fmt.Println(Violet + "======================================" + Reset)
+}
 func IsDead(personnage Character) bool {
 	if personnage.Health <= 0 {
 		return true

@@ -3,7 +3,7 @@ package src
 import "fmt"
 
 func afficherZombie() {
-	fmt.Println(`
+	fmt.Println(Vert + `
               (()))
              /|x x|
              /\( - )
@@ -23,7 +23,7 @@ func afficherZombie() {
 
 func afficherSquelette() {
 
-	fmt.Println(`	           
+	fmt.Println(Gris + `	           
                 .'/
                / /
               / /
@@ -59,7 +59,7 @@ func afficherSquelette() {
 }
 
 func afficherVampire() {
-	fmt.Println(`
+	fmt.Println(Violet + `
 		
                  /######\
                /##########\
@@ -87,7 +87,7 @@ func afficherVampire() {
 }
 
 func afficherDragon() {
-	fmt.Println(`
+	fmt.Println(Rouge + `
                                                _   __,----'~~~~~~~~~'-----.__
                                         .  .    '//====-              ____,-'~'
                         -.            \_|// .   /||\\  '~~~~'---.___./

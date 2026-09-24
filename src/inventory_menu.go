@@ -11,15 +11,15 @@ func AfficherInventaire() {
 	var choix int
 
 	if len(items) == 0 {
-		fmt.Println("Votre inventaire est vide")
+		PrintCouleur(Rouge, "Votre inventaire est vide.")
 		AfficherMenu()
 		return
 	}
 
-	fmt.Println("Vous avez dans votre inventaire :")
+	PrintCouleur(Bleu+Gras, "===== VOTRE INVENTAIRE =====")
 
 	for i, item := range items {
-		fmt.Printf("%d : %s\n", i+1, item)
+		fmt.Printf("%s%d : %s%s\n", Jaune, i+1, item, Reset)
 	}
 
 	fmt.Println("Souhaitez-vous utiliser un objet ?")
@@ -77,7 +77,6 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 		}
 
 		SupprimerItems(item)
-
 
 	default:
 		fmt.Println("Cet objet n'a pas d'effet particulier.")
