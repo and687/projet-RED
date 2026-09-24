@@ -11,34 +11,33 @@ func weapons() {
 		fmt.Println("Vous n'avez pas d'armes")
 		AfficherMenu()
 		return
-
-		fmt.Println("Vous avez dans votre armement :")
-
-		for i, w := range weapon {
-			fmt.Printf("%d : %s\n", i+1, w)
-		}
-
-		fmt.Println("Souhaitez-vous utiliser une armes ?")
-		fmt.Println("Tapez un numéro, ou 0 pour retourner au menu principal")
-
-		fmt.Scan(&choix)
-		clearTerminal()
-
-		if choix == 0 {
-			AfficherMenu()
-			return
-		}
-
-		if choix < 1 || choix > len(weapon) {
-			fmt.Println("Choix invalide.")
-			AfficherInventaire()
-			return
-		}
-
-		weaponChoisi := weapon[choix-1]
-
-		UtilisationWeapon(&Personnage, &ennemi, weaponChoisi)
 	}
+	fmt.Println("Vous avez dans votre armement :")
+
+	for i, w := range weapon {
+		fmt.Printf("%d : %s\n", i+1, w)
+	}
+
+	fmt.Println("Souhaitez-vous utiliser une armes ?")
+	fmt.Println("Tapez un numéro, ou 0 pour retourner au menu principal")
+
+	fmt.Scan(&choix)
+	clearTerminal()
+
+	if choix == 0 {
+		AfficherMenu()
+		return
+	}
+
+	if choix < 1 || choix > len(weapon) {
+		fmt.Println("Choix invalide.")
+		AfficherInventaire()
+		return
+	}
+
+	weaponChoisi := weapon[choix-1]
+
+	UtilisationWeapon(&Personnage, &ennemi, weaponChoisi)
 }
 
 func UtilisationWeapon(personnage *Character, ennemi *Monster, weapon string) {

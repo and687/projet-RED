@@ -38,9 +38,6 @@ func Start() {
 	fmt.Println("1. Chercheur - PV : 100/200, -Money : 150")
 	fmt.Println("2. Pilote -PV : 80/160, -Money : 250")
 	fmt.Println("3. Mercenaire -PV : 150/300, -Money : 50")
-	étage2 = false
-	étage3 = false
-	étage4 = false
 
 	var choix int
 	fmt.Scan(&choix)
@@ -81,7 +78,6 @@ func AfficherMenu() {
 	fmt.Printf("Vous avez %d / %d Pv\n", Personnage.Health, Personnage.HealthMax)
 	fmt.Scan(&choix)
 	clearTerminal()
-	
 
 	switch choix {
 
