@@ -53,13 +53,13 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 			return
 		}
 
-		personnage.Health += 20
+		personnage.Health += 50
 
 		if personnage.Health > personnage.HealthMax {
 			personnage.Health = personnage.HealthMax
 		}
 
-		fmt.Println("Vous utilisez une trousse de soins. +20 PV")
+		fmt.Println("Vous utilisez une trousse de soins. +50 PV")
 		SupprimerItems(item)
 
 	case "Fléchette empoisonée":

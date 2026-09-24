@@ -24,22 +24,22 @@ func Acheter() {
 	for {
 		PrintCouleur(Jaune+Gras, "===== BIENVENUE au 7 Eleven =====")
 		fmt.Println("Que voulez-vous acheter ?")
-		fmt.Println(Vert + "1 : Trousse de soins (50g)" + Reset)
-		fmt.Println(Violet + "2 : Fléchette empoisonnée (60g)" + Reset)
+		fmt.Println(Vert + "1 : Trousse de soins +50 PV (50g)" + Reset)
+		fmt.Println(Violet + "2 : Fléchette empoisonnée 30 DGT (60g)" + Reset)
 		if DoublePistolets {
-			fmt.Println(Jaune + "3 : Double pistolets (180g)" + Reset)
+			fmt.Println(Jaune + "3 : Double pistolets 20 DGT (180g)" + Reset)
 		}
 		if FusilAssault {
-			fmt.Println(Orange + "4 : Fusil d'assault (350g)" + Reset)
+			fmt.Println(Orange + "4 : Fusil d'assault 50 DGT (350g)" + Reset)
 		}
 		if DragonSlayer {
-			fmt.Println(Rouge + "5 : Épée: The dragon slayer (800g)" + Reset)
+			fmt.Println(Rouge + "5 : Épée: The dragon slayer 100 DGT (800g)" + Reset)
 		}
 		if stockage {
-			fmt.Println(Bleu + "6 : Agrandir sont inventaire de +5 (250)" + Reset)
+			fmt.Println(Bleu + "6 : Agrandir sont inventaire de +5 capacité (250)" + Reset)
 		}
 		if Gratuit {
-			fmt.Println(Vert + "7 : Trousse de soin (Gratuit)" + Reset)
+			fmt.Println(Vert + "7 : Trousse de soin +50 PV (Gratuit)" + Reset)
 		}
 		if peaudeserpent {
 			fmt.Println("8 : Peau de serpent (50g)")

@@ -55,7 +55,7 @@ func UtilisationWeapon(personnage *Character, ennemi *Monster, weapon string) {
 		fmt.Println(ennemi.Health, "/", ennemi.HealthMax)
 
 	case "Fusil d'assault":
-		ennemi.Health -= 30
+		ennemi.Health -= 50
 
 		if ennemi.Health < 0 {
 			ennemi.Health = 0

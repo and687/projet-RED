@@ -28,8 +28,8 @@ func Tailleur() {
 		clearTerminal()
 
 		if approuved == "non" {
-			fmt.Println("Très bien, la chemise à fleur ne sera pas fabriqué.")
-			return
+			fmt.Println("Très bien, le chapeau d'aventurier ne sera pas fabriqué.")
+			Tailleur()
 		}
 		if approuved == "oui" {
 
@@ -72,7 +72,8 @@ func Tailleur() {
 
 		if approuved == "non" {
 			fmt.Println("Très bien, la tunique verte ne sera pas fabriqué.")
-			return
+			Tailleur()
+			
 		}
 
 		if approuved == "oui" {
@@ -115,7 +116,7 @@ func Tailleur() {
 
 		if approuved == "non" {
 			fmt.Println("Très bien, le micro short ne sera pas fabriqué.")
-			return
+			Tailleur()
 		}
 
 		if approuved == "oui" {
