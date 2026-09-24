@@ -60,7 +60,7 @@ func AskName() string {
 		fmt.Scan(&name)
 
 		for _, caractere := range name {
-			if unicode.IsDigit(caractere) {
+			if unicode.IsDigit(caractere) && unicode.IsSpace(caractere) {
 				nameValide = false
 				break
 			}

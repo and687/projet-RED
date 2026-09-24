@@ -25,6 +25,7 @@ func Tailleur() {
 		fmt.Println("- 1 idole d'or")
 		fmt.Println("- 250 gold")
 		fmt.Scan(&approuved)
+		clearTerminal()
 
 		if approuved == "non" {
 			fmt.Println("Très bien, la chemise à fleur ne sera pas fabriqué.")
@@ -110,6 +111,7 @@ func Tailleur() {
 		fmt.Println("- 1 Tesseract ")
 		fmt.Println("- 250 gold")
 		fmt.Scan(&approuved)
+		clearTerminal()
 
 		if approuved == "non" {
 			fmt.Println("Très bien, le micro short ne sera pas fabriqué.")
