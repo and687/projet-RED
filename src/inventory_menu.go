@@ -41,12 +41,11 @@ func AfficherInventaire() {
 
 	itemChoisi := items[choix-1]
 
-	UtilisationItem(&Personnage, &ennemi, itemChoisi)
+	UtilisationItem(&Personnage, nil, itemChoisi)
 }
 
 func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 	switch item {
-
 	case "Trousse de soins":
 		if personnage.Health >= personnage.HealthMax {
 			fmt.Println("Vous avez déjà le maximum de points de vie.")
@@ -54,7 +53,6 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 		}
 
 		personnage.Health += 50
-
 		if personnage.Health > personnage.HealthMax {
 			personnage.Health = personnage.HealthMax
 		}
@@ -62,25 +60,25 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 		fmt.Println("Vous utilisez une trousse de soins. +50 PV")
 		SupprimerItems(item)
 
-	case "Fléchette empoisonée":
-		fmt.Println("Vous utilisez une fléchette empoisonnée.")
-
-		for i := 0; i < 3 && ennemi.Health > 0; i++ {
-			time.Sleep(time.Second)
-
-			ennemi.Health -= 10
-
-			if ennemi.Health < 0 {
-				ennemi.Health = 0
+	case "Fléchette empoisonnée":
+		if ennemi == nil {
+			personnage.Health -= 30
+			if personnage.Health < 0 {
+				personnage.Health = 0
 			}
-
-			fmt.Println("PV de l'ennemi :", ennemi.Health, "/", ennemi.HealthMax)
+			fmt.Println("Pas d'ennemi : la fléchette vous touche !")
+			fmt.Println("Vos PV :", personnage.Health, "/", personnage.HealthMax)
+		} else {
+			for i := 0; i < 3 && ennemi.Health > 0; i++ {
+				time.Sleep(time.Second)
+				ennemi.Health -= 10
+				if ennemi.Health < 0 {
+					ennemi.Health = 0
+				}
+				fmt.Println("PV de l'ennemi :", ennemi.Health, "/", ennemi.HealthMax)
+			}
 		}
-
 		SupprimerItems(item)
-
-	default:
-		fmt.Println("Cet objet n'a pas d'effet particulier.")
 	}
 }
 func SupprimerItems(item string) {

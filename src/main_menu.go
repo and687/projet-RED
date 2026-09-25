@@ -73,7 +73,7 @@ func Start() {
 func AfficherMenu() {
 	var choix int
 
-	fmt.Println(" Menu principal\n", "1 : Combat\n", "2 : Marchand\n", "3 : Tailleur\n", "4 : Inventaire\n", "5 : Equipement\n", "9 : Quitter le jeu")
+	fmt.Println(" Menu principal\n", "1 : Combat\n", "2 : Marchand\n", "3 : Tailleur\n", "4 : Inventaire\n", "5 : Equipement\n", "6 : Stats personnage\n", "9 : Quitter le jeu")
 	fmt.Printf("Vous avez %d d'or !\n", Personnage.Money)
 	fmt.Printf("Vous avez %d / %d Pv\n", Personnage.Health, Personnage.HealthMax)
 	fmt.Scan(&choix)
@@ -95,6 +95,9 @@ func AfficherMenu() {
 
 	case 5:
 		AfficherEquipement()
+
+	case 6:
+		DisplayInfo(&Personnage)
 
 	case 9:
 		Quitter()

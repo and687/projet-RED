@@ -84,7 +84,7 @@ func Acheter() {
 			if len(items) < capacité {
 				if Personnage.Money >= 60 {
 					Personnage.Money -= 60
-					items = append(items, "Fléchette empoisonée")
+					items = append(items, "Fléchette empoisonnée")
 					PrintCouleur(Vert, "Fléchette empoisonée ajoutée à votre inventaire !")
 				} else {
 					fmt.Println("Vous n'avez pas assez d'or !")
