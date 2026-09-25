@@ -1,12 +1,13 @@
 package src
 
 type Monster struct {
-	Name       string
-	Degats     int
-	Health     int
-	HealthMax  int
-	Recompense int
-	Experience int
+	Name        string
+	Degats      int
+	Health      int
+	HealthMax   int
+	Recompense  int
+	Experience  int
+	PoisonTurns int
 }
 
 var ennemi Monster

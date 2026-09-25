@@ -24,6 +24,7 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 		fmt.Scan(&choix)
 
 		switch choix {
+
 		case 0:
 			fmt.Println("Retour au menu principal")
 			return true
@@ -33,7 +34,7 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 			PrintCouleur(Rouge, "Attaque utilisée : coup de poing")
 			fmt.Println(Rouge+"Dégâts infligés :"+Reset, degats)
 			fmt.Println(Vert+"PV restants :"+Reset, ennemi.Health)
-			
+
 		case 2:
 
 			if len(weapon) == 0 {
@@ -104,6 +105,18 @@ func CharacterTurn(personnage *Character, ennemi *Monster) bool {
 				ennemi.Health = 0
 			}
 		}
+		if ennemi.PoisonTurns > 0 {
+			ennemi.Health -= 10
+			ennemi.PoisonTurns--
+
+			if ennemi.Health < 0 {
+				ennemi.Health = 0
+			}
+
+			fmt.Println("Le poison inflige 10 dégâts à", ennemi.Name)
+			fmt.Println("PV de l'ennemi :", ennemi.Health, "/", ennemi.HealthMax)
+		}
+
 		if ennemi.Health <= 0 {
 			ennemi.Health = 0
 			personnage.Money += ennemi.Recompense

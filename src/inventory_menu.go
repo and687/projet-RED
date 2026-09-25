@@ -2,7 +2,6 @@ package src
 
 import (
 	"fmt"
-	"time"
 )
 
 var items []string
@@ -66,18 +65,15 @@ func UtilisationItem(personnage *Character, ennemi *Monster, item string) {
 			if personnage.Health < 0 {
 				personnage.Health = 0
 			}
+
 			fmt.Println("Pas d'ennemi : la fléchette vous touche !")
 			fmt.Println("Vos PV :", personnage.Health, "/", personnage.HealthMax)
-		} else {
-			for i := 0; i < 3 && ennemi.Health > 0; i++ {
-				time.Sleep(time.Second)
-				ennemi.Health -= 10
-				if ennemi.Health < 0 {
-					ennemi.Health = 0
-				}
-				fmt.Println("PV de l'ennemi :", ennemi.Health, "/", ennemi.HealthMax)
-			}
+			SupprimerItems(item)
+			return
 		}
+
+		ennemi.PoisonTurns = 3
+		fmt.Println(ennemi.Name, "est empoisonné pour 3 tours !")
 		SupprimerItems(item)
 	}
 }
